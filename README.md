@@ -9,6 +9,7 @@
 # My certifications
 
 ***Bootcamp DIO - Digital Innovation One***
+
 [Certification by dio](https://github.com/LKSFerreira/bootcamp-dio)
 
 
