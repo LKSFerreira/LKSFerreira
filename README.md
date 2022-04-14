@@ -10,7 +10,7 @@
 
 ***Bootcamp DIO - Digital Innovation One***
 
-[Certification by dio](https://github.com/LKSFerreira/bootcamp-dio)
+[Certification by DIO](https://github.com/LKSFerreira/bootcamp-dio)
 
 
 <!---
