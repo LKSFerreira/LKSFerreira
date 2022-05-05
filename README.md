@@ -8,9 +8,13 @@
 
 # My certifications
 
-***Bootcamp DIO - Digital Innovation One***
+***Digital Innovation One - Bootcamp DIO***
 
 [Certification by DIO](https://github.com/LKSFerreira/bootcamp-dio)
+
+***Oracle Next Education - Alura***
+[Certification by ONE](https://github.com/LKSFerreira/oracle-next-education)
+
 
 
 <!---
