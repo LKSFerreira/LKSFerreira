@@ -16,6 +16,13 @@
 
 [Certification by ONE](https://github.com/LKSFerreira/oracle-next-education)
 
+[Challenge Oracle ONE](https://lksferreira.github.io/alura-challenge-one-decodificador-de-texto/)
+
+[Reposotória do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
+
+
+
+
 
 
 <!---
