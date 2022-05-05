@@ -18,7 +18,7 @@
 
 [Challenge Oracle ONE](https://lksferreira.github.io/alura-challenge-one-decodificador-de-texto/)
 
-[Reposotória do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
+[Repositório do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
 
 
 
