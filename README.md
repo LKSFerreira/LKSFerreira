@@ -2,7 +2,7 @@
 
 - 👋 Hi, I’m @LKSFerreira
 - 👀 I'm interested in games, astrophysics, chemistry and programming.
-- 🌱 I’m currently learning C#, HTML, CSS, JavaScript, Phyton.
+- 🌱 I’m currently learning HTML, CSS, JavaScript e Java.
 - 💞️ I’m looking to collaborate on enthusiastic
 - 📫 How to reach me lks_ferreira@hotmail.com
 
