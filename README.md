@@ -6,15 +6,15 @@
 - 💞️ I’m looking to collaborate on enthusiastic
 - 📫 How to reach me lks_ferreira@hotmail.com
 
-# My certifications
+# My Certified
 
 ***Digital Innovation One - Bootcamp DIO***
 
-[Certification by DIO](https://github.com/LKSFerreira/bootcamp-dio)
+[Certified by DIO](https://github.com/LKSFerreira/bootcamp-dio)
 
 ***Oracle Next Education - Alura***
 
-[Certification by ONE](https://github.com/LKSFerreira/oracle-next-education)
+[Certified by ONE](https://github.com/LKSFerreira/oracle-next-education)
 
 [Challenge Oracle ONE](https://lksferreira.github.io/alura-challenge-one-decodificador-de-texto/)
 
