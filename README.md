@@ -6,24 +6,19 @@
 - 💞️ I’m looking to collaborate on enthusiastic
 - 📫 How to reach me lks_ferreira@hotmail.com
 
-# My Certified
-
-***Digital Innovation One - Bootcamp DIO***
-
-[Certified by DIO](https://github.com/LKSFerreira/bootcamp-dio)
-
-***Oracle Next Education - Alura***
-
-[Certified by ONE](https://github.com/LKSFerreira/oracle-next-education)
-
-[Challenge Oracle ONE](https://lksferreira.github.io/alura-challenge-one-decodificador-de-texto/)
-
-[Repositório do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
-
-
-
-
-
+## My Certified
+<details>
+  <summary>Digital Innovation One - Bootcamp DIO</summary>
+  
+  * [Certified by DIO](https://github.com/LKSFerreira/bootcamp-dio)
+</details>
+<details>
+  <summary>Oracle Next Education - Alura</summary>
+  
+  * [Certified by ONE](https://github.com/LKSFerreira/oracle-next-education)
+  * [Página Challenge Oracle ONE](https://lksferreira.github.io/alura-challenge-one-decodificador-de-texto)
+  * [Repositório do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
+</details>
 
 <!---
 LKSFerreira/LKSFerreira is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
