@@ -1,4 +1,4 @@
-# print("Hello World")
+# Console.WriteLine("Hello World");
 
 - 👋 Hi, I’m @LKSFerreira
 - 👀 I'm interested in games, astrophysics, chemistry and programming.
