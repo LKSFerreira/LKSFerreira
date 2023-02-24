@@ -20,6 +20,7 @@
   * [Repositório do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
 </details>
 
+![Status](./profile-3d-contrib/profile-night-rainbow.svg)
 ![Snake animation](https://github.com/LKSFerreira/LKSFerreira/blob/output/github-contribution-grid-snake.svg)
 
 <div style=""> 
