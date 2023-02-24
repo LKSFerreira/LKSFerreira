@@ -20,7 +20,7 @@
   * [Repositório do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
 </details>
 
-![Snake animation](https://github.com/isaac545454/isaac545454/blob/output/github-contribution-grid-snake.svg)
+![Snake animation](https://github.com/LKSFerreira/LKSFerreira/blob/output/github-contribution-grid-snake.svg)
 
 <div style=""> 
   <div align='center'>
