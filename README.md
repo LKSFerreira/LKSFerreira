@@ -20,7 +20,10 @@
   * [Repositório do Challenge](https://github.com/LKSFerreira/alura-challenge-one-decodificador-de-texto)
 </details>
 
-<!---
-LKSFerreira/LKSFerreira is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+![Snake animation](https://github.com/isaac545454/isaac545454/blob/output/github-contribution-grid-snake.svg)
+
+<div style=""> 
+  <div align='center'>
+    <a height="150em" href="http://www.github.com/LKSFerreira"><img src="https://github-readme-streak-stats.herokuapp.com/?           user=LKSFerreira&stroke=2ea043&background=171717&ring=3382ed&fire=3382ed&currStreakNum=0bd967&currStreakLabel=3382ed&sideNums=0bd967&sideLabels=3382ed&dates=0bd967&hide_   border=true" /></a>
+  </div>
+</div>
