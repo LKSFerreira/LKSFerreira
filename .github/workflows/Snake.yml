@@ -39,7 +39,7 @@ jobs:
 
       # Faz um Push nas alterações
       - name: Push changes
-        uses: ad-m/github-push-action@compiler
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
