@@ -3,7 +3,7 @@
 - 💞️ I’m looking to collaborate on enthusiastic
 - 📫 How to reach me 
 
-<a href="https://www.youtube.com/channel/UC_-uuuZbY0AAt9CViNzvc-Q" target="_blank"><img src="https://img.shields.io/youtube/channel/subscribers/UCsQitD8Tk4sYxUpudTC5tvg?label=Inscreva-se&style=social" target="_blank"></a>
+<a href="https://www.youtube.com/channel/UCsQitD8Tk4sYxUpudTC5tvg" target="_blank"><img src="https://img.shields.io/youtube/channel/subscribers/UCsQitD8Tk4sYxUpudTC5tvg?label=Inscreva-se&style=social" target="_blank"></a>
 <a href="https://twitter.com/LKS_S_Ferreira" target="_blank"><img src="https://img.shields.io/twitter/follow/LKS_S_Ferreira?style=social" target="_blank"></a>
 <a href="https://www.twitch.tv/lksferreira" target="_blank"><img src="https://img.shields.io/twitch/status/lksferreira?label=LKS%20Ferreira&style=social" target="_blank"></a>
 <a href="https://discord.gg/rYaRUp9pAB" target="_blank"><img src="https://img.shields.io/badge/Discord-7289DA?&style=flat&logo=discord&logoColor=white" target="_blank"></a>
