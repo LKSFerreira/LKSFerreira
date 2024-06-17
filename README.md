@@ -10,8 +10,9 @@
 <a href = "mailto:ferreira.s.lks@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?label=Lucas%20Ferreira&style=flat&logo=gmail&logoColor=red" target="_blank"></a>
 <a href="https://www.linkedin.com/in/lucas-ferreira-developer" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=flat&logo=linkedin&logoColor=white" target="_blank"></a>
 
-<div style="display: inline_block">
+<div style="display: inline">
   <img align="center" alt="icone representando JavaScript" height="125" width="125" src="https://images.credly.com/size/680x680/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png">
+  <img align="center" alt="icone representando JavaScript" height="125" width="125" src="https://learn.microsoft.com/pt-br/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg">
 </div>
 
 <div style="display: inline_block"><br>
