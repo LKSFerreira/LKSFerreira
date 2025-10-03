@@ -7,7 +7,7 @@ name: Generate Snake
 on:
   schedule:
       # A cada 6 horas
-    - cron: "0 */6 * * *"
+    - cron: "0 */12 * * *"
 
 # Este comando nos permite executar a ação automaticamente a partir da guia Actions.
   workflow_dispatch:
