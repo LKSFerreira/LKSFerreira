@@ -3,6 +3,8 @@
 - 💞️ I’m looking to collaborate on enthusiastic
 - 📫 How to reach me
 
+<a href="https://visitorbadge.io/status?path=lksferreira"><img src="https://api.visitorbadge.io/api/visitors?path=lksferreira&label=Visitantes&labelColor=%2337d67a&countColor=%232ccce4" /></a>
+
 <a href="https://www.youtube.com/channel/UCsQitD8Tk4sYxUpudTC5tvg" target="_blank"><img src="https://img.shields.io/youtube/channel/subscribers/UCsQitD8Tk4sYxUpudTC5tvg?label=Inscreva-se&style=social" target="_blank"></a>
 <a href="https://twitter.com/LKS_S_Ferreira" target="_blank"><img src="https://img.shields.io/twitter/follow/LKS_S_Ferreira?style=social" target="_blank"></a>
 <a href="https://www.twitch.tv/lksferreira" target="_blank"><img src="https://img.shields.io/twitch/status/lksferreira?label=LKS%20Ferreira&style=social" target="_blank"></a>
