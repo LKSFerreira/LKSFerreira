@@ -1,9 +1,7 @@
 - 👋 Hi, I’m @LKSFerreira
 - 👀 I'm interested in 🎮 - 🔭 - 🔬 - 📚 - 🤖 - 👨‍💻
 - 💞️ I’m looking to collaborate on enthusiastic
-- 📫 How to reach me
-
-<a href="https://visitorbadge.io/status?path=lksferreira"><img src="https://api.visitorbadge.io/api/visitors?path=lksferreira&label=Visitantes&labelColor=%2337d67a&countColor=%232ccce4" /></a>
+- 📫 How to reach me:
 
 <a href="https://www.youtube.com/channel/UCsQitD8Tk4sYxUpudTC5tvg" target="_blank"><img src="https://img.shields.io/youtube/channel/subscribers/UCsQitD8Tk4sYxUpudTC5tvg?label=Inscreva-se&style=social" target="_blank"></a>
 <a href="https://twitter.com/LKS_S_Ferreira" target="_blank"><img src="https://img.shields.io/twitter/follow/LKS_S_Ferreira?style=social" target="_blank"></a>
@@ -11,6 +9,8 @@
 <a href="https://discord.gg/rYaRUp9pAB" target="_blank"><img src="https://img.shields.io/badge/Discord-7289DA?&style=flat&logo=discord&logoColor=white" target="_blank"></a>
 <a href = "mailto:ferreira.s.lks@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?label=Lucas%20Ferreira&style=flat&logo=gmail&logoColor=red" target="_blank"></a>
 <a href="https://www.linkedin.com/in/lucas-ferreira-developer" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=flat&logo=linkedin&logoColor=white" target="_blank"></a>
+
+<a href="https://visitorbadge.io/status?path=lksferreira"><img src="https://api.visitorbadge.io/api/visitors?path=lksferreira&label=Visitantes&labelColor=%2337d67a&countColor=%232ccce4" /></a>
 
 <div style="display: inline">
   <img align="center" alt="icone representando JavaScript" height="115" width="115" src="https://images.credly.com/size/680x680/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png">
