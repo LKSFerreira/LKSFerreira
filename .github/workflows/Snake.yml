@@ -39,18 +39,21 @@ jobs:
       - name: Show build status
         run: git status
 
-      # Instala o ImageMagick e converte os SVGs em GIFs de alta qualidade
+      # Converte SVGs para GIFs com suporte moderno a CSS (usando rsvg-convert)
       - name: Convert SVGs to GIFs
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick
-          # Corrige permissões antes de criar a pasta gif
+          sudo apt-get install -y librsvg2-bin imagemagick
           sudo chmod -R 777 dist
           mkdir -p dist/gif
           for file in dist/*.svg; do
             name=$(basename "$file" .svg)
             echo "Convertendo $file para GIF..."
-            convert -background none -density 400 -resize 800x800 -quality 100 "$file" "dist/gif/${name}.gif"
+            # Converte SVG para PNG primeiro (rsvg entende CSS moderno)
+            rsvg-convert -w 800 -h 800 "$file" -o "dist/gif/${name}.png"
+            # Depois converte PNG -> GIF com qualidade total
+            convert -loop 0 -delay 5 "dist/gif/${name}.png" "dist/gif/${name}.gif"
+            rm "dist/gif/${name}.png"
           done
 
 
