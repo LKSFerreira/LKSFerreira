@@ -1,5 +1,4 @@
-# GitHub Action para gerar múltiplas versões da cobrinha com diferentes estilos estéticos
-# e converter automaticamente os SVGs em GIFs de alta qualidade.
+# GitHub Action para gerar múltiplas versões da cobrinha com diferentes estilos estéticos.
 
 name: Generate Snake
 
@@ -17,23 +16,39 @@ jobs:
       # Checkout do repositório
       - uses: actions/checkout@v3
 
-      # Gera as diferentes versões da cobrinha (SVG)
-      - uses: Platane/snk@v3.3.0
+      # Gera as diferentes versões da cobrinha
+      - uses: Platane/snk@v3
         id: snake-gif
         with:
           github_user_name: ${{ github.repository_owner }}
+          # Várias versões bonitas e populares para experimentar!
           outputs: |
+            # --------- PADRÕES ---------
             dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
             dist/github-contribution-grid-snake.gif
-            dist/github-contribution-grid-snake-dark.gif?palette=github-dark
-            dist/github-snake-neon.svg?color_snake=purple&color_dots=%2322223b,%233a0ca3,%23f72585,%23ffbe0b,%2300f2ea
-            dist/github-snake-ocean.svg?color_snake=orange&color_dots=%23bfd6f6,%238dbdff,%2364a1f4,%234b91f1,%233c7dd9
-            dist/github-snake-rainbow.svg?color_snake=%23ff4da6&color_dots=%23ff595e,%23ffca3a,%238ac926,%231982c4,%236a4c93
-            dist/github-snake-mint.svg?color_snake=%2350fa7b&color_dots=%23f1faee,%23a8dadc,%23457b9d,%231d3557,%23e63946
-            dist/github-snake-dracula.svg?color_snake=%23ff79c6&color_dots=%23282a36,%2344475a,%236272a4,%23bd93f9,%23ff5555
-            dist/github-snake-autumn.svg?color_snake=%238d5524&color_dots=%23ffd6a5,%23fdffb6,%23caff70,%239bf6ff,%23ffc6ff
-            dist/github-snake-sky.svg?color_snake=%2387cefa&color_dots=%23e0f7fa,%23b2ebf2,%234fc3f7,%232196f3,%230d47a1
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+            # --------- NEON RETRO ---------
+            dist/github-snake-neon.svg?color_snake=purple&color_dots=#22223b,#3a0ca3,#f72585,#ffbe0b,#00f2ea
+
+            # --------- OCEAN ---------
+            dist/github-snake-ocean.svg?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+
+            # --------- RAINBOW ---------
+            dist/github-snake-rainbow.svg?color_snake=#ff4da6&color_dots=#ff595e,#ffca3a,#8ac926,#1982c4,#6a4c93
+
+            # --------- MINT CANDY ---------
+            dist/github-snake-mint.svg?color_snake=#50fa7b&color_dots=#f1faee,#a8dadc,#457b9d,#1d3557,#e63946
+
+            # --------- DRACULA THEME ---------
+            dist/github-snake-dracula.svg?color_snake=#ff79c6&color_dots=#282a36,#44475a,#6272a4,#bd93f9,#ff5555
+
+            # --------- AUTUMN ---------
+            dist/github-snake-autumn.svg?color_snake=#8d5524&color_dots=#ffd6a5,#fdffb6,#caff70,#9bf6ff,#ffc6ff
+
+            # --------- SKY CLOUD ---------
+            dist/github-snake-sky.svg?color_snake=#87cefa&color_dots=#e0f7fa,#b2ebf2,#4fc3f7,#2196f3,#0d47a1
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -41,34 +56,12 @@ jobs:
       - name: Show build status
         run: git status
 
-      # Converte SVGs para GIFs com suporte moderno a CSS (usando rsvg-convert)
-      - name: Convert SVGs to GIFs
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y librsvg2-bin imagemagick
-          sudo chmod -R 777 dist
-          mkdir -p dist/gif
-          for file in dist/*.svg; do
-            name=$(basename "$file" .svg)
-            echo "Convertendo $file para GIF..."
-            # Converte SVG para PNG primeiro (rsvg entende CSS moderno)
-            rsvg-convert -w 800 -h 800 "$file" -o "dist/gif/${name}.png"
-            # Depois converte PNG -> GIF com qualidade total
-            convert -loop 0 -delay 5 "dist/gif/${name}.png" "dist/gif/${name}.gif"
-            rm "dist/gif/${name}.png"
-          done
-
-
-      # Mostra os arquivos convertidos
-      - name: List output files
-        run: ls -R dist
-
-      # Faz o push dos SVGs e GIFs para a branch "output"
-      - name: Push generated files to output branch
+      # Push dos novos arquivos para a branch "output"
+      - name: Push new files to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          commit_message: "Update snake SVGs and GIF animations"
+          commit_message: Update snake animations
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
