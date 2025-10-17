@@ -44,12 +44,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
+          # Corrige permissões antes de criar a pasta gif
+          sudo chmod -R 777 dist
           mkdir -p dist/gif
           for file in dist/*.svg; do
             name=$(basename "$file" .svg)
             echo "Convertendo $file para GIF..."
             convert -background none -density 400 -resize 800x800 -quality 100 "$file" "dist/gif/${name}.gif"
           done
+
 
       # Mostra os arquivos convertidos
       - name: List output files
