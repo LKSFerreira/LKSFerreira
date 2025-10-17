@@ -21,8 +21,9 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             # --------- PADRÕES ---------
-            dist/github-snake-light.svg                                      # Padrão claro
-            dist/github-snake-dark.svg?palette=github-dark                   # Padrão escuro
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.svg?palette=github
 
             # --------- NEON RETRO ---------
             dist/github-snake-neon.svg?color_snake=purple&color_dots=#22223b,#3a0ca3,#f72585,#ffbe0b,#00f2ea
