@@ -1,5 +1,3 @@
-# GitHub Action para gerar múltiplas versões da cobrinha com diferentes estilos estéticos.
-
 name: Generate Snake
 
 on:
@@ -16,16 +14,15 @@ jobs:
       # Checkout do repositório
       - uses: actions/checkout@v3
 
-      # Gera as diferentes versões da cobrinha
+      # Gera as diferentes versões da cobrinha com top 20 paletas
       - uses: Platane/snk@v3
         id: snake-gif
         with:
           github_user_name: ${{ github.repository_owner }}
-          # Várias versões bonitas e populares para experimentar!
           outputs: |
             # --------- PADRÕES ---------
-            dist/github-contribution-grid-snake.svg                               # padrão claro
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark      # padrão escuro
+            dist/github-snake-light.svg                                      # Padrão claro
+            dist/github-snake-dark.svg?palette=github-dark                   # Padrão escuro
 
             # --------- NEON RETRO ---------
             dist/github-snake-neon.svg?color_snake=purple&color_dots=#22223b,#3a0ca3,#f72585,#ffbe0b,#00f2ea
@@ -47,6 +44,42 @@ jobs:
 
             # --------- SKY CLOUD ---------
             dist/github-snake-sky.svg?color_snake=#87cefa&color_dots=#e0f7fa,#b2ebf2,#4fc3f7,#2196f3,#0d47a1
+
+            # --------- DARK FOREST ---------
+            dist/github-snake-forest.svg?color_snake=#228b22&color_dots=#3e4e50,#264653,#2a9d8f,#e9c46a,#f4a261
+
+            # --------- FIRE SUNSET ---------
+            dist/github-snake-sunset.svg?color_snake=#ff5400&color_dots=#ffb703,#fb8500,#ff006e,#d90429,#3a86ff
+
+            # --------- ICEBERG ---------
+            dist/github-snake-ice.svg?color_snake=#bde0fe&color_dots=#0b3d91,#1e6091,#76c7c0,#c0e2e7,#fbf8cc
+
+            # --------- RETRO GAME ---------
+            dist/github-snake-retro.svg?color_snake=#32cd32&color_dots=#000000,#5c5757,#ffd700,#e57373,#8bc34a
+
+            # --------- SOLARIZED DARK ---------
+            dist/github-snake-solarized.svg?color_snake=#b58900&color_dots=#002b36,#073642,#586e75,#839496,#eee8d5
+
+            # --------- NORD ---------
+            dist/github-snake-nord.svg?color_snake=#81a1c1&color_dots=#2e3440,#3b4252,#434c5e,#eceff4,#a3be8c
+
+            # --------- AYU MIRAGE ---------
+            dist/github-snake-ayu.svg?color_snake=#ffcc66&color_dots=#232634,#252b3e,#7a7c94,#abb0c6,#ffd580
+
+            # --------- HALLOWEEN ---------
+            dist/github-snake-halloween.svg?color_snake=#ff7518&color_dots=#121212,#fb743e,#ffd166,#ffb563,#88292f
+
+            # --------- SWEET NIGHT ---------
+            dist/github-snake-night.svg?color_snake=#633f85&color_dots=#232946,#393e46,#a6b1e1,#f4e2d8,#f7f6e7
+
+            # --------- PASTEL DREAM ---------
+            dist/github-snake-pastel.svg?color_snake=#f6abb6&color_dots=#ffdde4,#c1c8e4,#b5ead7,#ffdac1,#ffb7b2
+
+            # --------- CYBER BLUE ---------
+            dist/github-snake-cyber.svg?color_snake=#039be5&color_dots=#212121,#353b48,#0abde3,#00cec9,#dff9fb
+
+            # --------- GALAXY ---------
+            dist/github-snake-galaxy.svg?color_snake=#9d4edd&color_dots=#22223b,#3f37c9,#4895ef,#f72585,#b5179e
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
