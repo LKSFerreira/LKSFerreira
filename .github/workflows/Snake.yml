@@ -24,9 +24,8 @@ jobs:
           # Várias versões bonitas e populares para experimentar!
           outputs: |
             # --------- PADRÕES ---------
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake.gif
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.svg                               # padrão claro
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark      # padrão escuro
 
             # --------- NEON RETRO ---------
             dist/github-snake-neon.svg?color_snake=purple&color_dots=#22223b,#3a0ca3,#f72585,#ffbe0b,#00f2ea
