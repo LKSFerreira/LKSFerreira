@@ -1,4 +1,5 @@
-# GitHub Action para gerar múltiplas versões da cobrinha com diferentes estilos estéticos.
+# GitHub Action para gerar múltiplas versões da cobrinha com diferentes estilos estéticos
+# e converter automaticamente os SVGs em GIFs de alta qualidade.
 
 name: Generate Snake
 
@@ -16,7 +17,7 @@ jobs:
       # Checkout do repositório
       - uses: actions/checkout@v3
 
-      # Gera as diferentes versões da cobrinha
+      # Gera as diferentes versões da cobrinha (SVG)
       - uses: Platane/snk@v3.3.0
         id: snake-gif
         with:
@@ -38,12 +39,28 @@ jobs:
       - name: Show build status
         run: git status
 
-      # Push dos novos arquivos para a branch "output"
-      - name: Push new files to output branch
+      # Instala o ImageMagick e converte os SVGs em GIFs de alta qualidade
+      - name: Convert SVGs to GIFs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          mkdir -p dist/gif
+          for file in dist/*.svg; do
+            name=$(basename "$file" .svg)
+            echo "Convertendo $file para GIF..."
+            convert -background none -density 400 -resize 800x800 -quality 100 "$file" "dist/gif/${name}.gif"
+          done
+
+      # Mostra os arquivos convertidos
+      - name: List output files
+        run: ls -R dist
+
+      # Faz o push dos SVGs e GIFs para a branch "output"
+      - name: Push generated files to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          commit_message: Update snake animations
+          commit_message: "Update snake SVGs and GIF animations"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
