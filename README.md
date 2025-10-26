@@ -26,7 +26,7 @@
 </div>
 
   ##
-![Status](./profile-3d-contrib/profile-night-rainbow.svg)
+![Status](https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg)
 <div style="">
    <div align= "center"><br>
     <img src="https://github.com/LKSFerreira/LKSFerreira/blob/output/github-contribution-grid-snake-lks-neon.svg"/>
