@@ -33,5 +33,3 @@
     <a href="http://www.github.com/LKSFerreira">
     <img src="https://github-readme-streak-stats.herokuapp.com?user=LKSFerreira&theme=vision-friendly-dark&hide_border=true&locale=pt_BR"/></a>     
 </div>
-
-
