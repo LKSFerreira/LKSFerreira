@@ -30,6 +30,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@github.com"
           git add -A .
-          if git commit -m "generated"; then
+          if git commit -m ":white_check_mark: Gerado gráfico 3D de perfil"; then
             git push
           fi
