@@ -29,7 +29,7 @@
 ![Status](https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg)
 <div style="">
    <div align= "center"><br>
-    <img src="https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/output/github-contribution-grid-snake-lks-neon.svg"/>
+    <img src="https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/snakes/github-contribution-grid-snake-lks-neon.svg"/>
     <a href="http://www.github.com/LKSFerreira">
     <img src="https://github-readme-streak-stats.herokuapp.com?user=LKSFerreira&theme=vision-friendly-dark&hide_border=true&locale=pt_BR"/></a>     
 </div>
