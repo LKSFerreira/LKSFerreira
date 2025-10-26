@@ -17,15 +17,6 @@
   <img align="center" alt="icone representando JavaScript" height="125" width="125" src="https://learn.microsoft.com/pt-br/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg">
 </div>
 
-<div style="display: inline_block"><br>
-  <img align="center" alt="icone representando JavaScript" height="58" width="58" src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-plain.svg">
-  <img align="center" alt="icone representando HTML" height="60" width="60" src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg">
-  <img align="center" alt="icone representando CSS" height="60" width="60" src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg">
-  <img align="center" alt="icone representando Csharp" height="60" width="60" src="https://github.com/devicons/devicon/blob/master/icons/csharp/csharp-original.svg">
- <img align="center" alt="icone representando Java" height="60" width="60" src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg">
-</div>
-
-  ##
 ![Status](https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg)
 <div style="">
    <div align= "center"><br>
