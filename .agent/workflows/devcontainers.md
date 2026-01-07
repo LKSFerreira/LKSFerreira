@@ -1,21 +1,21 @@
 ---
-description: Configura infraestrutura de Dev Containers para desenvolvimento isolado via Docker
+description: Configura ambiente de desenvolvimento com Docker Compose (sem servidor remoto)
 ---
 
-# Workflow: Configuração de Dev Containers
+# Workflow: Configuração de Ambiente Docker Compose
 
-Este workflow guia a criação completa da infraestrutura de Dev Containers para projetos de qualquer linguagem.
+Este workflow configura o ambiente de desenvolvimento usando Docker Compose puro — simples, leve e sem dependência de servidor remoto.
 
-## Pré-requisitos
+## Filosofia
 
-- Docker Desktop instalado e funcionando
-- VS Code com a extensão "Dev Containers" (`ms-vscode-remote.remote-containers`)
+- **Docker Compose direto**: Sem Dev Containers, sem servidor remoto
+- **Um comando**: `docker compose up` e pronto
+- **Código sincronizado**: Volume bind monta o código local no container
+- **Hot reload**: Alterações são refletidas automaticamente
 
 ---
 
-## 1. Criar Estrutura de Diretórios
-
-Crie o diretório `.devcontainer` na raiz do projeto:
+## 1. Criar Estrutura
 
 ```bash
 mkdir -p .devcontainer
@@ -23,198 +23,120 @@ mkdir -p .devcontainer
 
 ---
 
-## 2. Identificar a Linguagem do Projeto
+## 2. Identificar Linguagem e Copiar Template
 
-Analise o projeto para identificar a linguagem principal:
-- `pyproject.toml`, `requirements.txt` → Python
-- `package.json` → JavaScript/TypeScript
-- `go.mod` → Go
-- `Cargo.toml` → Rust
-- `pom.xml`, `build.gradle` → Java
+Verifique os templates disponíveis em `.agent/templates/.devcontainer/`:
 
----
+| Linguagem                 | Template              |
+| ------------------------- | --------------------- |
+| JavaScript (Vite/React)   | `javascript-vite/`    |
+| JavaScript (Express/Next) | `javascript-express/` |
+| Python (FastAPI)          | `python-fastapi/`     |
+| Python (Django)           | `python-django/`      |
+| Java (Spring Boot)        | `java-spring/`        |
+| PHP (Laravel)             | `php-laravel/`        |
+| Go                        | `go/`                 |
+| Rust                      | `rust/`               |
 
-## 3. Criar o devcontainer.json
-
-Crie o arquivo `.devcontainer/devcontainer.json` com a estrutura abaixo, adaptando conforme a linguagem.
-
-### Template para Python
-
-```json
-{
-    "name": "Python Dev Container",
-    "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
-    
-    "features": {
-        "ghcr.io/devcontainers/features/git:1": {}
-    },
-    
-    "forwardPorts": [],
-    
-    "postCreateCommand": "pip install --user -r requirements.txt && pip install --user -r requirements-dev.txt || true",
-    
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "charliermarsh.ruff",
-                "tamasfe.even-better-toml"
-            ],
-            "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "python.testing.pytestEnabled": true,
-                "python.testing.pytestArgs": ["tests"],
-                "editor.formatOnSave": true
-            }
-        }
-    },
-    
-    "remoteUser": "vscode"
-}
-```
-
-### Template para JavaScript/TypeScript
-
-```json
-{
-    "name": "Node.js Dev Container",
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
-    
-    "features": {
-        "ghcr.io/devcontainers/features/git:1": {}
-    },
-    
-    "forwardPorts": [3000],
-    
-    "postCreateCommand": "npm install",
-    
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "dbaeumer.vscode-eslint",
-                "esbenp.prettier-vscode"
-            ],
-            "settings": {
-                "editor.formatOnSave": true,
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
-            }
-        }
-    },
-    
-    "remoteUser": "node"
-}
-```
-
----
-
-## 4. (Opcional) Criar Dockerfile Customizado
-
-Se precisar de customizações avançadas, crie `.devcontainer/Dockerfile`:
-
-```dockerfile
-# Para Python
-FROM mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
-
-# Instalar dependências do sistema
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Configurações adicionais
-USER vscode
-```
-
-E atualize o `devcontainer.json`:
-
-```json
-{
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".."
-    }
-}
-```
-
----
-
-## 5. (Opcional) Docker Compose para Multi-Serviços
-
-Se o projeto precisar de banco de dados ou outros serviços, crie `.devcontainer/docker-compose.yml`:
-
-```yaml
-version: '3.8'
-
-services:
-  app:
-    build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
-    volumes:
-      - ..:/workspace:cached
-    command: sleep infinity
-    
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: dev
-      POSTGRES_PASSWORD: dev
-      POSTGRES_DB: app_dev
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
-volumes:
-  postgres-data:
-```
-
-E atualize o `devcontainer.json`:
-
-```json
-{
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
-    "workspaceFolder": "/workspace"
-}
-```
-
----
-
-## 6. Atualizar .agent/rules/<linguagem>.md
-
-Após criar o Dev Container, atualize as regras da linguagem para refletir o novo ambiente:
-
-### Exemplo para Python
-
-Substitua as referências a `.venv/Scripts/python.exe` por:
-- **Python**: `python` ou `python3`
-- **Pip**: `pip` ou `pip3`
-- **Pytest**: `pytest`
-
-> **Nota:** Dentro do Dev Container, não é necessário ambiente virtual. O container já fornece isolamento.
-
----
-
-## 7. Abrir o Projeto no Dev Container
-
-No VS Code:
-1. Pressione `F1` ou `Ctrl+Shift+P`
-2. Digite: `Dev Containers: Reopen in Container`
-3. Aguarde o build e configuração automática
-
----
-
-## 8. Commitar a Configuração
+Copie o `compose.yaml` do template para `.devcontainer/`:
 
 ```bash
-git add .devcontainer/
-git commit -m ":bricks: ci: Adiciona configuracao de Dev Container"
+cp .agent/templates/.devcontainer/<linguagem>/compose.yaml .devcontainer/
+```
+
+---
+
+## 3. Criar Arquivo de Variáveis de Ambiente
+
+Crie `.env.development` na **raiz do projeto** (não dentro de `.devcontainer/`):
+
+```bash
+# PostgreSQL
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=nome_do_projeto
+
+# Conexão com o banco
+DATABASE_URL=postgresql://postgres:postgres@database:5432/nome_do_projeto
+
+# Variáveis específicas do projeto
+# ...
+```
+
+> **Importante:** O nome do host é `database` (nome do serviço no compose), não `localhost`.
+
+---
+
+## 4. Estrutura Final
+
+```
+projeto/
+├── .devcontainer/
+│   └── compose.yaml          # Docker Compose
+├── .env.development          # Variáveis de ambiente
+├── src/                      # Código fonte
+└── ...
+```
+
+---
+
+## 5. Executar o Ambiente
+
+```bash
+cd .devcontainer
+docker compose up
+```
+
+Ou em background:
+
+```bash
+docker compose up -d
+docker compose logs -f app
+```
+
+---
+
+## 6. Comandos Úteis
+
+| Comando                      | Descrição                           |
+| ---------------------------- | ----------------------------------- |
+| `docker compose up`          | Inicia os containers                |
+| `docker compose down`        | Para os containers                  |
+| `docker compose down -v`     | Para e remove volumes (limpa banco) |
+| `docker compose logs -f app` | Mostra logs do app                  |
+| `docker compose exec app sh` | Acessa shell do container           |
+
+---
+
+## 7. Atualizar .gitignore
+
+Adicione ao `.gitignore`:
+
+```gitignore
+# Ambiente
+.env
+.env.local
+.env.development
+.env.*.local
 ```
 
 ---
 
 ## Verificação
 
-- [ ] Container inicia sem erros
-- [ ] Extensões do VS Code são instaladas automaticamente
-- [ ] Dependências do projeto são instaladas via `postCreateCommand`
-- [ ] Comandos da linguagem funcionam (ex: `python --version`, `pytest`)
+- [ ] `docker compose up` inicia sem erros
+- [ ] App é acessível na porta configurada (ex: `localhost:5173`)
+- [ ] Banco de dados conecta corretamente
+- [ ] Alterações no código são refletidas automaticamente (hot reload)
+
+---
+
+## 8. Limpeza: Remover Templates (OBRIGATÓRIO)
+
+Após copiar o template para `.devcontainer/`, **remova o diretório de templates** pois ele já cumpriu seu propósito:
+
+```bash
+rm -rf .agent/templates/
+```
+
+> **Motivo:** Os templates são usados apenas na inicialização do projeto. Mantê-los no repositório gera duplicação desnecessária.
