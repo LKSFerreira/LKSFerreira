@@ -1,0 +1,38 @@
+# =============================================================================
+# Docker Compose - JavaScript/TypeScript com Express/Next.js
+# =============================================================================
+# Uso: docker compose up
+# App: http://localhost:3000
+# =============================================================================
+
+services:
+  database:
+    image: "postgres:16-alpine"
+    env_file:
+      - ../.env.development
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  app:
+    image: "node:22-alpine"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    working_dir: /app
+    command: sh -c "npm install -g npm@latest && npm install && npm run dev"
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env.development
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - database
+
+volumes:
+  postgres-data:

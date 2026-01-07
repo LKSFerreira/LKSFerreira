@@ -1,0 +1,45 @@
+# =============================================================================
+# Docker Compose - PHP com Laravel
+# =============================================================================
+# Uso: docker compose up
+# App: http://localhost:8000
+# =============================================================================
+
+services:
+  database:
+    image: "postgres:16-alpine"
+    env_file:
+      - ../.env.development
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  redis:
+    image: "redis:7-alpine"
+    ports:
+      - "6379:6379"
+
+  app:
+    image: "php:8.3-cli-alpine"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../:/app
+      - composer-cache:/root/.composer
+    working_dir: /app
+    command: sh -c "composer install && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env.development
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    depends_on:
+      - database
+      - redis
+
+volumes:
+  postgres-data:
+  composer-cache:

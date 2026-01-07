@@ -1,0 +1,41 @@
+# =============================================================================
+# Docker Compose - Rust (Actix/Axum/Rocket)
+# =============================================================================
+# Uso: docker compose up
+# App: http://localhost:8080
+# =============================================================================
+
+services:
+  database:
+    image: "postgres:16-alpine"
+    env_file:
+      - ../.env.development
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  app:
+    image: "rust:1.77-alpine"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../:/app
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/app/target
+    working_dir: /app
+    command: sh -c "apk add --no-cache musl-dev && cargo watch -x run"
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env.development
+    environment:
+      - RUST_LOG=debug
+      - RUST_BACKTRACE=1
+    depends_on:
+      - database
+
+volumes:
+  postgres-data:
+  cargo-cache:
+  target-cache:
