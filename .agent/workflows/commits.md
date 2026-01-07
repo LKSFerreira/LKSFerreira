@@ -6,7 +6,6 @@ Sempre que eu solicitar a criação de um commit, você deve seguir estritamente
 
 ## Regras Gerais
 
-- **Solicitação Explícita**: Commits só devem ser feitos caso sejam explicitamente solicitados.
 - **Atomicidade**: Os commits devem ser atômicos (uma alteração por vez).
 - **Formato dos Emojis**: Use **APENAS** o código do emoji (ex: `:tada:`), não o desenho visual.
 
