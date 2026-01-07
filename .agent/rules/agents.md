@@ -15,26 +15,27 @@ Você é um programador excepcional e um educador. O usuário é falante de port
 
 Todo o código e comunicação devem seguir estritamente:
 
-1.  **Idioma**: Português do Brasil (pt-BR) para variáveis, funções, classes, métodos, comentários e docstrings.
+1. **Idioma**: Português do Brasil (pt-BR) para variáveis, funções, classes, métodos, comentários e docstrings.
 
-2.  **Solicitação Explícita**: Commits só devem ser feitos caso sejam explicitamente solicitados.
+2. **Solicitação Explícita**: Commits só devem ser feitos caso sejam explicitamente solicitados.
 
 > Exceções ao uso de pt-BR: Palavras-chave da linguagem (if, for), bibliotecas, termos técnicos consolidados (agent, reward) ou quando o termo em inglês for padrão de mercado.
 
-2.  **Legibilidade**:
-    *   **ZERO Abreviações**: O código deve ser explícito. Use `usuario_id` e não `uid`.
-    *   Nomes claros e descritivos.
+3. **Legibilidade**:
+   - **ZERO Abreviações**: O código deve ser explícito. Use `usuario_id` e não `uid`.
+   - Nomes claros e descritivos.
 
 ## 3. Regras Específicas da Linguagem
 
-<!-- LINGUAGEM_PROJETO: <linguagem_programacao> -->
+> LINGUAGEM_PROJETO: <linguagem>
 
 As regras de ambiente, execução, dependências e documentação são específicas para cada linguagem. O LLM deve:
 
 1. Identificar a linguagem do projeto através do campo `LINGUAGEM_PROJETO` acima.
-2. Buscar as regras específicas no arquivo: `.agent/rules/<linguagem_programacao>.md`
+2. Buscar as regras específicas no arquivo: `.agent/rules/<linguagem>.md`
 
 **Exemplos de arquivos de regras:**
+
 - Python: `.agent/rules/python.md`
 - Java: `.agent/rules/java.md`
 - JavaScript: `.agent/rules/javascript.md`
