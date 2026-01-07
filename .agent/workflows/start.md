@@ -16,6 +16,23 @@ Assuma que o projeto segue estritamente esta estrutura:
 
 - Caso os diretórios não exista, crie-os.
 
+## Identificação da Linguagem do Projeto
+
+Antes de gerar o arquivo `nova_demanda.md`, você DEVE:
+
+1. **Identificar a linguagem dominante do projeto** analisando arquivos como:
+   - `pyproject.toml`, `requirements.txt` → Python
+   - `package.json` → JavaScript/TypeScript
+   - `go.mod` → Go
+   - `Cargo.toml` → Rust
+   - `pom.xml`, `build.gradle` → Java
+
+2. **Atualizar o campo `LINGUAGEM_PROJETO`** no arquivo `.agent/rules/agents.md`:
+   - Localize o comentário `<!-- LINGUAGEM_PROJETO: ... -->`
+   - Substitua pelo valor identificado (ex: `python`, `javascript`, `java`, `go`, `rust`)
+
+> **Importante:** Se o template de docstring correspondente (`.agent/rules/docstring_<linguagem>.md`) não existir, crie-o seguindo as convenções da linguagem identificada.
+
 ## Conteúdo a Gerar
 
 Crie um arquivo markdown contendo o seguinte prompt padronizado. Mantenha os placeholders genéricos para que funcionem em qualquer projeto (Python, Node, Rust, etc).
@@ -29,7 +46,7 @@ Crie um arquivo markdown contendo o seguinte prompt padronizado. Mantenha os pla
 description: Template para carregar o contexto completo do projeto ao iniciar uma task
 ---
 
-# 🚀 Inicialização de Contexto
+# ��� Inicialização de Contexto
 
 Estou retomando o desenvolvimento deste projeto. Para garantir alinhamento total, execute os passos abaixo antes de escrevermos qualquer código.
 
@@ -59,4 +76,4 @@ Com base na leitura do `.metadocs/roadmap.md` e do estado atual dos arquivos:
 
 ---
 
-**🛑 AGUARDE:** Não gere código ainda. Apenas apresente o resumo do contexto e aguarde minha confirmação ou instruções específicas para a tarefa de hoje.
+**AGUARDE:** Não gere código ainda. Apenas apresente o resumo do contexto e aguarde minha confirmação ou instruções específicas para a tarefa de hoje.
