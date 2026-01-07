@@ -35,6 +35,30 @@ O projeto roda em Windows utilizando Git Bash. Você deve usar **exclusivamente*
     .venv/Scripts/pytest.exe tests/ -v
 ```
 
+## 1.1 Ambiente Dev Container (Docker)
+
+Quando executando dentro de um Dev Container, **NÃO** use ambiente virtual. O container já fornece isolamento.
+
+**Regras de Execução no Dev Container:**
+*   **Python**: Use `python` ou `python3`
+*   **Pip**: Use `pip` ou `pip3`
+*   **Pytest**: Use `pytest`
+
+**Exemplos de Comandos no Dev Container:**
+
+```bash
+    # Executar script
+    python main.py
+
+    # Instalar dependência
+    pip install psutil
+
+    # Rodar testes
+    pytest tests/ -v
+```
+
+> **Como identificar?** Se o terminal estiver dentro do container (indicado pelo VS Code), use os comandos do Dev Container.
+
 ## 2. Padrão de Documentação (Docstrings)
 
 O agente deve seguir estritamente o formato **ReStructuredText (RST)** padrão Sphinx.
