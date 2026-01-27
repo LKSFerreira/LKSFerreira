@@ -6,58 +6,42 @@ trigger: always_on
 
 Este arquivo define todas as regras específicas para projetos Python.
 
-## 1. Ambiente Virtual e Execução (Windows/Git Bash)
+## 1. Gerenciamento de Dependências com `uv`
 
-O projeto roda em Windows utilizando Git Bash. Você deve usar **exclusivamente** os executáveis do ambiente virtual `.venv`.
+Este projeto adotou o **uv** (Astral) como gerenciador padrão.
 
-**Regras de Caminho e Execução:**
-*   Use barras normais (`/`) nos caminhos.
-*   **Python**: Use sempre `.venv/Scripts/python.exe`
-*   **Pip**: Use sempre `.venv/Scripts/pip.exe`
-*   **Pytest**: Use sempre `.venv/Scripts/pytest.exe`
+**Regras de Execução:**
+*   Use `uv` para tudo relacionado a pacotes e execução.
+*   **Não** use `pip` ou `virtualenv` diretamente.
+*   **Não** edite `pyproject.toml` manualmente para adicionar dependências.
 
-**Gerenciamento de Dependências:**
-*   Nunca use apenas `pip install`.
-*   Bibliotecas de Produção: Instale e adicione ao `requirements.txt`.
-*   Bibliotecas de Desenvolvimento: Instale e adicione ao `requirements-dev.txt`.
-*   *Atenção*: Comandos de instalação (`pip install`) devem ter `SafeToAutoRun: false`.
-
-**Exemplos de Comandos Corretos:**
+**Comandos Padrão:**
 
 ```bash
-    # Executar script
-    .venv/Scripts/python.exe main.py
+    # Adicionar lib de produção
+    uv add numpy
 
-    # Instalar dependência
-    .venv/Scripts/pip.exe install psutil
+    # Adicionar lib de dev
+    uv add --dev pytest
+
+    # Rodar script
+    uv run main.py
 
     # Rodar testes
-    .venv/Scripts/pytest.exe tests/ -v
+    uv run pytest
 ```
 
-## 1.1 Ambiente Dev Container (Docker)
+## 1.1 Ambiente Dev Container
 
-Quando executando dentro de um Dev Container, **NÃO** use ambiente virtual. O container já fornece isolamento.
+No Docker, o `uv` já está configurado.
 
-**Regras de Execução no Dev Container:**
-*   **Python**: Use `python` ou `python3`
-*   **Pip**: Use `pip` ou `pip3`
-*   **Pytest**: Use `pytest`
-
-**Exemplos de Comandos no Dev Container:**
-
+**Comandos no Container:**
 ```bash
-    # Executar script
-    python main.py
-
-    # Instalar dependência
-    pip install psutil
-
-    # Rodar testes
-    pytest tests/ -v
+    # Se precisar adicionar algo rápido (mas idealmente use uv add fora e rebuilde)
+    uv add pacote
 ```
 
-> **Como identificar?** Se o terminal estiver dentro do container (indicado pelo VS Code), use os comandos do Dev Container.
+> **Nota:** O Dockerfile cuida da instalação inicial (`uv sync`).
 
 ## 2. Padrão de Documentação (Docstrings)
 
