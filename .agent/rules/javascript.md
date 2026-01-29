@@ -1,5 +1,6 @@
 ---
-trigger: linguagem_projeto == "javascript"
+trigger: model_decision
+description: Convenções JS/TS, estrutura de projeto, nomenclatura, testes e formatação com ESLint/Prettier.
 ---
 
 # Regras para JavaScript/TypeScript
