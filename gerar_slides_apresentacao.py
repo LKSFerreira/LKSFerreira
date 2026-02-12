@@ -11,6 +11,8 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Cm, Pt
 
 # --- 🎨 DESIGN SYSTEM V9 (LEGIBILIDADE + RESUMO HEURÍSTICO) ---
+# --- 🎨 DESIGN SYSTEM V8 (MODERN CARD UI REFINED) ---
+# Paleta de Cores
 COR_VERDE_PRIMARIA = RGBColor(0, 102, 51)
 COR_VERDE_ESCURO = RGBColor(0, 84, 42)
 COR_TEXTO_HEADER = RGBColor(255, 255, 255)
@@ -23,6 +25,14 @@ COR_SOMBRA = RGBColor(120, 128, 140)
 COR_TEXTO_CONTEUDO = RGBColor(48, 54, 61)
 COR_TITULO_DARK = RGBColor(34, 40, 46)
 
+COR_BORDA_SUTIL = RGBColor(217, 222, 228)
+COR_SOMBRA = RGBColor(140, 148, 158)
+
+COR_TEXTO_CONTEUDO = RGBColor(55, 61, 68)
+COR_TEXTO_SECUNDARIO = RGBColor(98, 107, 117)
+COR_TITULO_DARK = RGBColor(35, 41, 48)
+
+# Fontes
 FONTE_FAMILIA = "Segoe UI"
 FONTE_TITULO_CARD = "Segoe UI Semibold"
 FONTE_TITULO_PRINCIPAL = "Segoe UI Semibold"
@@ -60,6 +70,14 @@ PALAVRAS_CHAVE_PRIORITARIAS = {
     "ação",
     "acao",
 }
+# Configurações
+ARQUIVO_ENTRADA = "data.csv"
+ARQUIVO_SAIDA = "Apresentacao_Modern_V8.pptx"
+
+# Nomes das Colunas (Ajuste conforme seu CSV)
+COL_ACOES = "Actions"  # Ou 'Ações Realizadas'
+COL_PROXIMAS = "Activities"  # Ou 'Próximas Atividades'
+COL_PROBLEMAS = "Comments"  # Ou 'Problemas e Pendências'
 
 
 def limpar_html(texto):
@@ -212,6 +230,7 @@ def _aplicar_texto_header(text_frame, titulo):
 
     p_h.font.name = FONTE_TITULO_CARD
     p_h.font.size = Pt(11.8)
+    p_h.font.size = Pt(10.8)
     p_h.font.bold = True
     p_h.font.color.rgb = COR_TEXTO_HEADER
 
@@ -272,6 +291,41 @@ def criar_card_moderno(
     sombra.shadow.inherit = False
     sombra.adjustments[0] = 0.02
 
+def _aplicar_texto_body(text_frame, conteudo):
+    text_frame.clear()
+    text_frame.margin_left = Cm(0.38)
+    text_frame.margin_right = Cm(0.38)
+    text_frame.margin_top = Cm(0.24)
+    text_frame.margin_bottom = Cm(0.22)
+    text_frame.vertical_anchor = MSO_ANCHOR.TOP
+    text_frame.word_wrap = True
+
+    p_b = text_frame.paragraphs[0]
+    p_b.text = conteudo
+    p_b.alignment = PP_ALIGN.LEFT
+    p_b.space_after = Pt(0)
+    p_b.space_before = Pt(0)
+    p_b.line_spacing = 1.18
+
+    p_b.font.name = FONTE_FAMILIA
+    p_b.font.size = Pt(10.2)
+    p_b.font.color.rgb = COR_TEXTO_CONTEUDO
+
+
+def criar_card_moderno(slide, left, top, width, height, titulo, conteudo, is_html=False):
+    """Cria card com header refinado, borda suave e sombra discreta."""
+
+    # Sombra principal (suave)
+    sombra = slide.shapes.add_shape(
+        MSO_SHAPE.RECTANGLE, left + Cm(0.08), top + Cm(0.08), width, height
+    )
+    sombra.fill.solid()
+    sombra.fill.fore_color.rgb = COR_SOMBRA
+    sombra.fill.transparency = 88
+    sombra.line.fill.background()
+    sombra.shadow.inherit = False
+
+    # Header
     h_header = Cm(0.9)
     header = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, left, top, width, h_header)
     header.fill.solid()
@@ -280,6 +334,7 @@ def criar_card_moderno(
     header.line.width = Pt(0.5)
     _aplicar_texto_header(header.text_frame, titulo)
 
+    # Body
     h_body = height - h_header
     body = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, left, top + h_header, width, h_body)
     body.fill.solid()
@@ -305,6 +360,12 @@ def criar_card_moderno(
         tamanho_fonte=tamanho_fonte,
         bullets=bullets,
     )
+    limite_chars = 1200
+    conteudo_str = str(conteudo)
+    if len(conteudo_str) > limite_chars:
+        conteudo_str = conteudo_str[:limite_chars] + "... (texto truncado)"
+
+    _aplicar_texto_body(body.text_frame, conteudo_str)
 
 
 def _adicionar_titulo_principal(slide, margin_x, width_total, txt_id, txt_titulo):
@@ -334,12 +395,14 @@ def _adicionar_titulo_principal(slide, margin_x, width_total, txt_id, txt_titulo
     run_tit = p_t.add_run()
     run_tit.text = txt_titulo
     run_tit.font.name = "Segoe UI"
+    run_tit.font.name = "Segoe UI Light"
     run_tit.font.size = Pt(20)
     run_tit.font.color.rgb = COR_TITULO_DARK
 
 
 def main():
     print("--- 🎨 GERADOR DE SLIDES V9 (LEGIBILIDADE + RESUMO) ---")
+    print("--- 🎨 GERADOR DE SLIDES V8 (MODERN UI REFINED) ---")
 
     df = carregar_dados_blindado(ARQUIVO_ENTRADA)
     if df is None:
@@ -365,6 +428,7 @@ def main():
         fill.fore_color.rgb = COR_FUNDO_SLIDE
 
         # --- GRID SYSTEM (inalterado) ---
+        # --- GRID SYSTEM (mantido) ---
         margin_x = Cm(1.0)
         width_total = Cm(31.867)
         gap = Cm(0.5)
@@ -397,6 +461,7 @@ def main():
                 valor,
                 tamanho_fonte=12.3,
             )
+            criar_card_moderno(slide, pos_x, current_y, w_meta, h_meta, titulo, valor)
             pos_x += w_meta + gap
 
         current_y += h_meta + gap
@@ -407,6 +472,8 @@ def main():
         descricao_resumida = resumir_texto_heuristico(descricao_limpa)
         bullets_desc = transformar_em_bullets(descricao_resumida, max_linhas=5)
 
+        # 3. Descrição
+        h_desc = Cm(4.5)
         criar_card_moderno(
             slide,
             margin_x,
@@ -417,6 +484,8 @@ def main():
             bullets_desc,
             tamanho_fonte=11.8,
             bullets=True,
+            row.get("Description", ""),
+            is_html=True,
         )
 
         current_y += h_desc + gap
@@ -438,6 +507,7 @@ def main():
             acoes_bullets,
             tamanho_fonte=11.8,
             bullets=True,
+            row[COL_ACOES],
         )
         criar_card_moderno(
             slide,
@@ -449,11 +519,13 @@ def main():
             proximas_bullets,
             tamanho_fonte=11.8,
             bullets=True,
+            row[COL_PROXIMAS],
         )
 
         current_y += h_middle + gap
 
         # 5. Pontos de atenção
+        # 5. Problemas
         h_total_slide = Cm(19.05)
         margin_bottom = Cm(1.0)
         h_restante = h_total_slide - current_y - margin_bottom
@@ -472,6 +544,7 @@ def main():
             problemas_bullets,
             tamanho_fonte=11.8,
             bullets=True,
+            row[COL_PROBLEMAS],
         )
 
     try:
@@ -479,6 +552,9 @@ def main():
         print(f"\n✨ Apresentação salva com sucesso: {ARQUIVO_SAIDA}")
     except PermissionError:
         print(f"\n🚫 ERRO: O arquivo '{ARQUIVO_SAIDA}' está aberto. Feche-o e tente novamente.")
+        print(
+            f"\n🚫 ERRO: O arquivo '{ARQUIVO_SAIDA}' está aberto. Feche-o e tente novamente."
+        )
 
 
 if __name__ == "__main__":
