@@ -1,7 +1,12 @@
-- 👋 Hi, I’m @LKSFerreira
-- 👀 I'm interested in 🎮 - 🔭 - 🔬 - 📚 - 🤖 - 👨‍💻
-- 💞️ I’m looking to collaborate on enthusiastic
-- 📫 How to reach me:
+## 👋 Hey, I'm Lucas Ferreira!
+
+🎓 Computer Engineering Student @ **UNIVESP** · 👨‍💻 Software Developer @ **Atos Brasil**
+
+🔐 Cybersecurity Enthusiast · 🤖 AI Explorer · 🔭 Astrophysics Lover · 🎮 Gamer
+
+> *Building things that matter, breaking things that shouldn't exist, and learning everything in between.*
+
+📫 **Reach me:**
 
 <a href="https://www.youtube.com/channel/UCsQitD8Tk4sYxUpudTC5tvg" target="_blank"><img src="https://img.shields.io/youtube/channel/subscribers/UCsQitD8Tk4sYxUpudTC5tvg?label=Inscreva-se&style=social" target="_blank"></a>
 <a href="https://twitter.com/LKS_S_Ferreira" target="_blank"><img src="https://img.shields.io/twitter/follow/LKS_S_Ferreira?style=social" target="_blank"></a>
@@ -17,10 +22,64 @@
   <img align="center" alt="icone representando JavaScript" height="125" width="125" src="https://learn.microsoft.com/pt-br/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg">
 </div>
 
-![Status](https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg)
-<div style="">
-   <div align= "center"><br>
-    <img src="https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/snakes/github-contribution-grid-snake-lks-neon.svg"/>
-    <a href="http://www.github.com/LKSFerreira">
-    <img src="https://github-readme-streak-stats.herokuapp.com?user=LKSFerreira&theme=vision-friendly-dark&hide_border=true&locale=pt_BR"/></a>     
+<details open>
+<summary><b>📊 GitHub Contribution Stats</b></summary>
+<br>
+
+<div align="left">
+  <img src="https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg" width="80%" alt="3D Contribution Chart"/>
+</div>
+
+</details>
+
+---
+<details open>
+<summary><b>🔥 GitHub Streak</b></summary>
+  <br>
+  <a href="http://www.github.com/LKSFerreira">
+    <img src="https://github-readme-streak-stats.herokuapp.com?user=LKSFerreira&theme=vision-friendly-dark&hide_border=true&locale=pt_BR"/>
+  </a>
+</div>
+</details>
+---
+
+<details open> 
+  <summary><h2>🚀 Projects I'm Currently Working On</h2></summary>
+
+  <p align="left">
+    <a href="https://github.com/LKSFerreira/sem-susto"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=LKSFerreira&repo=sem-susto&theme=react&bg_color=1F222E&title_color=00E6FE&hide_border=true&icon_color=F8D866&show_icons=false" alt="sem-susto"></a>
+    <a href="https://github.com/LKSFerreira/ggfreela"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=LKSFerreira&repo=ggfreela&theme=react&bg_color=1F222E&title_color=00E6FE&hide_border=true&icon_color=F8D866&show_icons=false" alt="ggfreela"></a>
+    <a href="https://github.com/LKSFerreira/sofhe-lang"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=LKSFerreira&repo=sofhe-lang&theme=react&bg_color=1F222E&title_color=00E6FE&hide_border=true&icon_color=F8D866&show_icons=false" alt="sofhe-lang"></a>
+    <a href="https://github.com/LKSFerreira/clone-tabnews"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=LKSFerreira&repo=clone-tabnews&theme=react&bg_color=1F222E&title_color=00E6FE&hide_border=true&icon_color=F8D866&show_icons=false" alt="clone-tabnews"></a>
+    <a href="https://github.com/LKSFerreira/learning-artificial-intelligence"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=LKSFerreira&repo=learning-artificial-intelligence&theme=react&bg_color=1F222E&title_color=00E6FE&hide_border=true&icon_color=F8D866&show_icons=false" alt="learning-artificial-intelligence"></a>
+    <a href="https://github.com/LKSFerreira/EngComp-UNIVESP"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=LKSFerreira&repo=EngComp-UNIVESP&theme=react&bg_color=1F222E&title_color=00E6FE&hide_border=true&icon_color=F8D866&show_icons=false" alt="EngComp-UNIVESP"></a>
+    <a href="https://github.com/LKSFerreira/cybersecurity"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=LKSFerreira&repo=cybersecurity&theme=react&bg_color=1F222E&title_color=00E6FE&hide_border=true&icon_color=F8D866&show_icons=false" alt="cybersecurity"></a>
+  </p>
+
+  <a href="https://github.com/LKSFerreira?tab=repositories&sort=stargazers"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.demolab.com/badge/-Click%20Here%20For%20All%20My%20Repos-1F222E?style=for-the-badge&logoColor=white&logo=repo"/></a>
+</details>
+
+---
+
+## 🛠️ Tech Stack
+
+<div align="left">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
+  <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+  <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Kali Linux"/>
+</div>
+
+---
+
+<div align="left">
+  <br>
+  <a href="http://www.github.com/LKSFerreira">
+    <img src="https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/snakes/github-contribution-grid-snake-lks-neon.svg" width="150%" alt="GitHub Contribution Grid Snake"/> 
+  </a>
 </div>
