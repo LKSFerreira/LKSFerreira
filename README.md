@@ -1,10 +1,14 @@
+<a id="english"></a>
+
 ## 👋 Hey, I'm Lucas Ferreira!
 
-🎓 Computer Engineering Student @ **UNIVESP** · 👨‍💻 Software Developer @ **Atos Brasil**
+### 👉 [🇧🇷](#portugues) 👈
+
+  🎓 Computer Engineering Student @ **UNIVESP** · 👨‍💻 Application Developer @ **Atos Brasil**
 
 🔐 Cybersecurity Enthusiast · 🤖 AI Explorer · 🔭 Astrophysics Lover · 🎮 Gamer
 
-> *Building things that matter, breaking things that shouldn't exist, and learning everything in between.*
+> *Building things that matter, breaking pointless rules, and striving to be better today than yesterday.*
 
 📫 **Reach me:**
 
@@ -27,10 +31,33 @@
 <br>
 
 <div align="left">
-  <img src="https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg" width="80%" alt="3D Contribution Chart"/>
+  <img src="https://raw.githubusercontent.com/LKSFerreira/LKSFerreira/refs/heads/main/profile-3d-contrib/profile-night-rainbow.svg" alt="3D Contribution Chart"/>
 </div>
 
 </details>
+
+---
+
+<a id="portugues"></a>
+
+## 👋 E aí, eu sou o Lucas Ferreira!
+
+### 👉 [🇺🇸](#english) 👈
+
+🎓 Estudante de Engenharia da Computação @ **UNIVESP** · 👨‍💻 Desenvolvedor de Aplicações @ **Atos Brasil**
+
+🔐 Entusiasta de Cybersecurity · 🤖 Explorador de IA · 🔭 Amante de Astrofísica · 🎮 Gamer
+
+> *Construindo o que faz a diferença, quebrando coisas sem sentido e tentando ser melhor hoje do que ontem.*
+
+📫 **Fale comigo:**
+
+<a href="https://www.youtube.com/channel/UCsQitD8Tk4sYxUpudTC5tvg" target="_blank"><img src="https://img.shields.io/youtube/channel/subscribers/UCsQitD8Tk4sYxUpudTC5tvg?label=Inscreva-se&style=social" target="_blank"></a>
+<a href="https://twitter.com/LKS_S_Ferreira" target="_blank"><img src="https://img.shields.io/twitter/follow/LKS_S_Ferreira?style=social" target="_blank"></a>
+<a href="https://www.twitch.tv/lksferreira" target="_blank"><img src="https://img.shields.io/twitch/status/lksferreira?label=LKS%20Ferreira&style=social" target="_blank"></a>
+<a href="https://discord.gg/rYaRUp9pAB" target="_blank"><img src="https://img.shields.io/badge/Discord-7289DA?&style=flat&logo=discord&logoColor=white" target="_blank"></a>
+<a href = "mailto:ferreira.s.lks@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?label=Lucas%20Ferreira&style=flat&logo=gmail&logoColor=red" target="_blank"></a>
+<a href="https://www.linkedin.com/in/lucas-ferreira-developer" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=flat&logo=linkedin&logoColor=white" target="_blank"></a>
 
 ---
 <details open>
