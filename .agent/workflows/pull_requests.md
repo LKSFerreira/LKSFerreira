@@ -1,60 +1,57 @@
 ---
-description: Modelo para criação consistente das pull requests
+description: Gerador de Pull Request com Rigor de Sintaxe e Caminhos Relativos
 ---
 
-🚨 REGRAS CRÍTICAS DE FORMATAÇÃO DE ARQUIVOS 🚨
+Atue como um Tutor Revisor Rigoroso. Sua tarefa é gerar o corpo de um Pull Request baseado nos laboratórios e experimentos realizados no branch atual (diff), ressaltando o aprendizado consolidado.
 
-1.  **PROIBIDO**: Nunca use o protocolo `cci:`, `file:///` ou caminhos absolutos do Windows (ex: `c:/Users/...`).
-2.  **PROIBIDO**: Não tente criar "smart links" ou links duplos (ex: `[[arquivo](link)]`).
-3.  **OBRIGATÓRIO**: Ao citar arquivos, use EXATAMENTE e APENAS o formato Markdown padrão relativo.
-    - Correto: `[app/controllers/api_controller.py](app/controllers/api_controller.py)`
-    - Correto: `[tests/test_main.py](tests/test_main.py)`
-    - Incorreto: `[[app/main.py](cci:7://...)]`
+## 🚨 REGRAS CRÍTICAS DE FORMATAÇÃO (SINTAXE)
 
-Resumo:
-Coloque dentro de um bloco markdown, use apenas referências relativas com [ ]()
-
-> Nenhum link ou referência deve ter algo como (cci:7://file:///c:/)
-
-Sempre que eu solicitar a criação de um Pull Request (PR), você deve ignorar formatos padrão e seguir estritamente a estrutura abaixo. Mantenha os emojis, as seções em negrito e o bloco de nota final. Seja técnico e conciso.
-
-```markdown
-✨ [TIPO_DA_MUDANÇA] Nome da Feature/Etapa: Título Descritivo
-
-🎯 Visão Geral
-
-Este Pull Request consolida a [Etapa/Feature] do Roadmap, focando em [Objetivo Principal] através da [Técnica/Ferramenta Utilizada]. O objetivo foi [Benefício Claro/Problema Resolvido] (como [Exemplo de erro evitado ou melhoria]).
-
-🛠️ Alterações Realizadas
-
-🧩 [Categoria de Mudança 1 - ex: Tipagem/Backend]
-
-- Implementação de [Detalhe técnico 1] em [Módulos afetados].
-- Adição de [Detalhe técnico 2].
-- [Detalhe técnico 3].
-
-🛡️ [Categoria de Mudança 2 - ex: Segurança/Tratamento de Erros]
-
-- Refatoração de [Fluxo lógico] para garantir [Comportamento esperado].
-- Correção de [Item específico].
-
-🏛️ Melhorias de Arquitetura
-
-- Criação de [Novos componentes/propriedades] para melhor [Encapsulamento/Performance/Manutenibilidade].
-
-📈 Resultados Técnicos
-
-- [Métrica ou Validação]: O comando [Comando executado] agora retorna [Resultado esperado].
-- [Benefício Direto]: [Melhoria observada no desenvolvimento ou produção].
-
-🧪 Como Validar?
-
-1. Ative o ambiente virtual: [Comando de ativação]
-2. Execute a validação: [Comando de teste/validação]
-3. Execute os testes unitários: [Comando de teste]
+1. **PROIBIÇÃO ABSOLUTA**: Nunca use os protocolos `cci:`, `file:///` ou caminhos absolutos (ex: `C:/Users/...`).
+2. **PROIBIÇÃO DE LINKS DUPLOS**: Não use a sintaxe `[[arquivo](link)]`.
+3. **OBRIGATORIEDADE DE LINKS RELATIVOS**: Ao citar qualquer arquivo, use exclusivamente o formato Markdown padrão relativo: `[caminho/do/arquivo.ext](caminho/do/arquivo.ext)`.
+4. **EMOJIS**: Mantenha os emojis e os códigos de tipo (ex: `:sparkles: feat`) conforme definido no padrão de commits do projeto.
 
 ---
 
-> Nota:
-> Este PR encerra formalmente a [Fase/Etapa Atual], preparando o terreno para [Próxima Etapa].
-```
+## 📋 ESTRUTURA DO PULL REQUEST
+
+Gere a saída seguindo este template estrito, extraindo as informações do `git diff` e do `.metadocs/roadmap.md`:
+
+# ✨ [TIPO] Nome da Feature: Título Descritivo
+
+## 🎯 Visão Geral de Aprendizado
+Consolidação do Estudo da [Etapa] do Roadmap. Foco em compreender **[Conceito Principal]** através de **[Técnica/Ferramenta]**. 
+*O que foi aprendido/resolvido:* [Descreva o insight ou erro compreendido e evitado].
+
+## 🛠️ Alterações Realizadas
+
+### 🧩 [Categoria 1: ex: Backend/Logic]
+- [Mudança 1] em [arquivo](caminho/relativo).
+- [Mudança 2] em [arquivo](caminho/relativo).
+
+### 🛡️ [Categoria 2: ex: Segurança/Refatoração]
+- [Ajuste de fluxo] para garantir [comportamento].
+- Correção de [item específico].
+
+## 🏛️ Melhorias de Arquitetura
+- [Novos componentes/abstrações] para melhor [Encapsulamento/Performance].
+
+## 📈 Resultados e Insights Técnicos
+- **Validação:** O comando `[comando]` testado retorna `[resultado]`.
+- **Conhecimento Adquirido:** [O que isso provou ou ensinou na prática].
+
+## 🧪 Como Validar?
+1. **Ambiente:** [Comando de ativação/setup]
+2. **Execução:** [Comando de teste/validação]
+3. **Testes:** [Comando de testes unitários]
+
+---
+
+> **Nota Didática:** Este PR de estudo encerra formalmente a [Fase Atual de Aprendizado], preparando a base conceitual para [Próximo Tópico do Roadmap].
+
+---
+
+## INSTRUÇÃO DE EXECUÇÃO
+1. Analise o `git diff` das alterações não commitadas ou do branch atual vs `main`.
+2. Verifique o `.metadocs/roadmap.md` para identificar a Fase/Etapa.
+3. Gere o texto final pronto para cópia, aplicando rigorosamente a regra de links relativos.

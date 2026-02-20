@@ -1,0 +1,39 @@
+# ==========================================
+# ESTÁGIO 1: BASE E DEPENDÊNCIAS (CACHE)
+# ==========================================
+FROM python:3.12-alpine AS base
+
+LABEL maintainer="Ambiente python django"
+LABEL description="Ambiente de desenvolvimento Python para Django usando UV"
+
+WORKDIR /app
+
+RUN apk add --no-cache libpq postgresql-libs && \
+    apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
+RUN pip install uv --no-cache-dir
+
+# Copie requirements.txt ou pyproject.toml aqui se existir
+# COPY requirements.txt .
+# RUN uv pip install --system -r requirements.txt && apk del .build-deps
+
+# ==========================================
+# ESTÁGIO 2: DESENVOLVIMENTO (DevContainer)
+# ==========================================
+FROM base AS dev
+
+EXPOSE 8000
+
+# Como o código vem via Bind Mount do compose, mantemos o servidor rodando.
+# Se as dependências não estão no build cache, o container aguarda a instalação.
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+# ==========================================
+# ESTÁGIO 3: PRODUÇÃO (Deploy)
+# ==========================================
+FROM base AS prod
+
+# Cópia do código
+COPY . .
+
+# Comando de produção padrão (Mude para gunicorn/uvicorn apropriadamente)
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

@@ -1,0 +1,37 @@
+# ==========================================
+# ESTÁGIO 1: BASE E DEPENDÊNCIAS (CACHE)
+# ==========================================
+FROM rust:1.77-alpine AS base
+
+LABEL maintainer="Ambiente rust"
+LABEL description="Ambiente de desenvolvimento Rust (Actix/Axum/Rocket)"
+
+WORKDIR /app
+
+# Instala dependências e cargo-watch para hot reload no DevContainer
+RUN apk add --no-cache musl-dev gcc make
+RUN cargo install cargo-watch
+
+# ==========================================
+# ESTÁGIO 2: DESENVOLVIMENTO (DevContainer)
+# ==========================================
+FROM base AS dev
+
+EXPOSE 8080
+
+# Usamos cargo-watch para escutar mudanças no código provindo do Bind Mount
+CMD ["cargo", "watch", "-x", "run"]
+
+# ==========================================
+# ESTÁGIO 3: PRODUÇÃO (Deploy)
+# ==========================================
+FROM base AS prod
+
+COPY . .
+
+# Faz o build de release
+RUN cargo build --release
+
+# O binário gerado estará em target/release/{nome_do_projeto}
+# Assumindo que o nome do projeto se chame app:
+CMD ["./target/release/app"]

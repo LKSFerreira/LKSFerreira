@@ -1,5 +1,5 @@
 # =============================================================================
-# Docker Compose - JavaScript/TypeScript com Express/Next.js
+# Docker Compose - JavaScript/TypeScript com Express (Otimizado com Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
 # App: http://localhost:3000
@@ -16,14 +16,16 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   app:
-    image: "node:22-alpine"
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.node
+      target: dev
     ports:
       - "3000:3000"
     volumes:
       - ../:/app
       - /app/node_modules
     working_dir: /app
-    command: sh -c "npm install -g npm@latest && npm install && npm run dev"
     stdin_open: true
     tty: true
     env_file:

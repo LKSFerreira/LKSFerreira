@@ -1,9 +1,8 @@
 # =============================================================================
-# Docker Compose - Python com Django (Otimizado com UV e Multi-stage Cache)
+# Docker Compose - Java (Otimizado com Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
-# App: http://localhost:8000
-# Admin: http://localhost:8000/admin
+# App: Execução standalone
 # =============================================================================
 
 services:
@@ -19,23 +18,21 @@ services:
   app:
     build:
       context: ../
-      dockerfile: .devcontainer/Dockerfile.python
+      dockerfile: .devcontainer/Dockerfile.java
       target: dev
-    ports:
-      - "8000:8000"
     volumes:
       - ../:/app
+      - maven-cache:/root/.m2
+      - gradle-cache:/root/.gradle
     working_dir: /app
     stdin_open: true
     tty: true
     env_file:
       - ../.env.development
-    environment:
-      - PYTHONUNBUFFERED=1
-      - PYTHONDONTWRITEBYTECODE=1
-      - DEBUG=True
     depends_on:
       - database
 
 volumes:
   postgres-data:
+  maven-cache:
+  gradle-cache:

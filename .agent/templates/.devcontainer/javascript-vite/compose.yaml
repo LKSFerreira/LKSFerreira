@@ -1,5 +1,5 @@
 # =============================================================================
-# Docker Compose - JavaScript/TypeScript com Vite
+# Docker Compose - JavaScript/TypeScript com Vite (Otimizado com Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
 # App: http://localhost:5173
@@ -16,14 +16,16 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   app:
-    image: "node:20-alpine"
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.node
+      target: dev
     ports:
       - "5173:5173"
     volumes:
       - ../:/app
       - /app/node_modules
     working_dir: /app
-    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
     stdin_open: true
     tty: true
     env_file:

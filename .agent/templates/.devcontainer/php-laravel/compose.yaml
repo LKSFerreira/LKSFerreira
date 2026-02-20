@@ -1,5 +1,5 @@
 # =============================================================================
-# Docker Compose - PHP com Laravel
+# Docker Compose - PHP com Laravel (Otimizado com Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
 # App: http://localhost:8000
@@ -21,13 +21,16 @@ services:
       - "6379:6379"
 
   app:
-    image: "php:8.3-cli-alpine"
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.php
+      target: dev
     ports:
       - "8000:8000"
     volumes:
-      - ../:/app
-      - composer-cache:/root/.composer
-    working_dir: /app
+      - ../:/var/www/html
+      - vendor-cache:/var/www/html/vendor
+    working_dir: /var/www/html
     command: sh -c "composer install && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"
     stdin_open: true
     tty: true
@@ -42,4 +45,5 @@ services:
 
 volumes:
   postgres-data:
+  vendor-cache:
   composer-cache:

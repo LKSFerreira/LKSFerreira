@@ -1,0 +1,30 @@
+# ==========================================
+# ESTÁGIO 1: BASE E DEPENDÊNCIAS (CACHE)
+# ==========================================
+FROM python:3.12-alpine AS base
+WORKDIR /app
+
+RUN apk add --no-cache libpq postgresql-libs && \
+    apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
+RUN pip install uv --no-cache-dir
+
+COPY pyproject.toml .
+RUN uv pip install --system -r pyproject.toml && \
+    apk del .build-deps
+
+# ==========================================
+# ESTÁGIO 2: DESENVOLVIMENTO (DevContainer)
+# ==========================================
+FROM base AS dev
+# Aqui NÃO copiamos o código. Ele vem pelo Bind Mount (volumes do compose.yaml).
+# Mantém o container vivo para a IDE.
+CMD ["tail", "-f", "/dev/null"]
+
+# ==========================================
+# ESTÁGIO 3: PRODUÇÃO (Deploy)
+# ==========================================
+FROM base AS prod
+# Aqui aplicamos a Etapa 2 da "dica de ouro": copiamos o código final.
+COPY . .
+# Comando real para rodar a aplicação em produção
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
