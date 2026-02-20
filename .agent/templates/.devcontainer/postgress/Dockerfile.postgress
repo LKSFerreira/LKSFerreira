@@ -1,0 +1,24 @@
+# ==========================================
+# ESTÁGIO 1: BASE (CACHE)
+# ==========================================
+FROM postgres:16-alpine AS base
+
+LABEL maintainer="Ambiente postgress"
+LABEL description="Ambiente de desenvolvimento para PostgreSQL"
+
+# Adicione customizações aqui se necessário
+
+# ==========================================
+# ESTÁGIO 2: DESENVOLVIMENTO (DevContainer)
+# ==========================================
+FROM base AS dev
+
+# O entrypoint padrão do postgres já lida com a inicialização corretamente
+EXPOSE 5432
+
+# ==========================================
+# ESTÁGIO 3: PRODUÇÃO (Deploy)
+# ==========================================
+FROM base AS prod
+
+EXPOSE 5432

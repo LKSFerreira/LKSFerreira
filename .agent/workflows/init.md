@@ -1,70 +1,46 @@
 ---
-description: Gerador de Contexto de Inicialização
+description: Gerador de Contexto de Inicialização e Padronização de Projeto
 ---
 
-Atue como um Arquiteto de Software focado em Padronização de Projetos.
-Sua tarefa é configurar o ambiente inicial do projeto.
+Atue como um Arquiteto de Software focado em Padronização de Projetos. Sua tarefa é analisar o workspace e configurar o ambiente inicial seguindo rigorosamente os padrões da stack identificada.
 
-## Estrutura de Diretórios Padrão
+## 1. Mapeamento e Criação de Estrutura
+Verifique a existência dos seguintes diretórios e arquivos. Caso não existam, **crie-os imediatamente** com conteúdo básico (boilerplate):
 
-Assuma que o projeto segue esta estrutura:
+- `.agent/rules/agents.md`: Regras globais de comportamento do agente.
+- `.metadocs/roadmap.md`: Lista de tarefas e progresso do projeto.
+- `README.md`: Documentação principal com título e descrição do projeto.
 
-- `.agent/rules/agents.md` (Regras do Agente)
-- `.agent/rules/<linguagem>.md` (Regras específicas da linguagem)
-- `.metadocs/roadmap.md` (Planejamento)
-- `README.md` (Visão Geral)
+## 2. Identificação de Stack (Ação Imperativa)
+Analise os arquivos na raiz para determinar a linguagem dominante. 
 
-> Caso os diretórios não existam, crie-os.
+**Prioridade de Identificação:**
+1. `package.json` -> `javascript/typescript`
+2. `pyproject.toml` ou `requirements.txt` -> `python`
+3. `go.mod` -> `go`
+4. `Cargo.toml` -> `rust`
+5. `composer.json` -> `php`
+6. `pom.xml` ou `build.gradle` -> `java`
+7. *Fallback*: Se nenhum for encontrado, analise as extensões de arquivos predominantes no diretório `src/`.
 
-## AÇÃO OBRIGATÓRIA: Identificar e Configurar Linguagem
+## 3. Configuração de Regras (Escrita de Arquivos)
 
-**VOCÊ DEVE EXECUTAR ESTAS AÇÕES NA ORDEM:**
+### Passo A: Atualizar agents.md
+Localize a tag `<!-- LINGUAGEM_PROJETO: ... -->` no arquivo `.agent/rules/agents.md` e atualize-a com a linguagem identificada. 
+*Exemplo:* `<!-- LINGUAGEM_PROJETO: typescript -->`
 
-### Passo 1: Identificar a linguagem dominante
+### Passo B: Regras Específicas da Linguagem
+Verifique se `.agent/rules/<linguagem>.md` existe.
+- **Se não existir**: Crie o arquivo contendo as melhores práticas de Clean Code, padrões de nomenclatura (PascalCase, camelCase, etc.) e estrutura de pastas recomendada para essa linguagem específica.
 
-Analise os arquivos de configuração na raiz:
+## 4. Finalização e Próximos Passos
+Após a execução, forneça um resumo das ações realizadas:
+1. Qual linguagem foi detectada.
+2. Quais arquivos foram criados ou atualizados.
+3. Confirmação de que o ambiente está pronto para o workflow de Docker.
 
-| Arquivo                              | Linguagem  |
-| ------------------------------------ | ---------- |
-| `pyproject.toml`, `requirements.txt` | python     |
-| `package.json`                       | javascript |
-| `go.mod`                             | go         |
-| `Cargo.toml`                         | rust       |
-| `pom.xml`, `build.gradle`            | java       |
-| `composer.json`                      | php        |
-
-### Passo 2: Atualizar agents.md
-
-**AÇÃO IMPERATIVA:** Abra o arquivo `.agent/rules/agents.md` e substitua:
-
-```markdown
-<!-- LINGUAGEM_PROJETO: <linguagem_programacao> -->
-```
-
-Por (exemplo para JavaScript):
-
-```markdown
-<!-- LINGUAGEM_PROJETO: javascript -->
-```
-
-> Use o valor identificado no Passo 1. Este passo é OBRIGATÓRIO e não opcional.
-
-### Passo 3: Verificar regras da linguagem
-
-Verifique se existe o arquivo `.agent/rules/<linguagem>.md`.
-
-- Se existir: leia-o para conhecer as regras específicas.
-- Se não existir: crie-o com as convenções padrão da linguagem.
-
-## Resultado Esperado
-
-Após executar este workflow, o projeto deve ter:
-
-1. Campo `LINGUAGEM_PROJETO` preenchido em `agents.md`
-2. Arquivo de regras específicas da linguagem
+**NOTIFICAÇÃO:** "Configuração inicial concluída. Para configurar o ambiente Docker, execute o comando `/setup_devcontainers`."
 
 ---
 
-> **Próximo passo:** Para configurar o ambiente Docker, execute o workflow `/devcontainers`.
-
-**AGUARDE:** Notifique o usuário sobre as configurações realizadas antes de prosseguir.
+**Aguardando análise do workspace para iniciar...**

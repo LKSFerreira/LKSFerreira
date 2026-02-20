@@ -1,5 +1,5 @@
 # =============================================================================
-# Docker Compose - Java com Spring Boot
+# Docker Compose - Java com Spring Boot (Otimizado com Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
 # App: http://localhost:8080
@@ -16,14 +16,16 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   app:
-    image: "eclipse-temurin:21-jdk-alpine"
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.java
+      target: dev
     ports:
       - "8080:8080"
     volumes:
       - ../:/app
       - maven-cache:/root/.m2
     working_dir: /app
-    command: sh -c "./mvnw spring-boot:run -Dspring-boot.run.jvmArguments='-Dspring.devtools.restart.enabled=true'"
     stdin_open: true
     tty: true
     env_file:

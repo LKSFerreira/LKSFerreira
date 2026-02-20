@@ -1,5 +1,5 @@
 # =============================================================================
-# Docker Compose - Python com Django
+# Docker Compose - Python com Django (Otimizado com UV e Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
 # App: http://localhost:8000
@@ -17,13 +17,15 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   app:
-    image: "python:3.12-alpine"
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.python
+      target: dev
     ports:
       - "8000:8000"
     volumes:
       - ../:/app
     working_dir: /app
-    command: sh -c "pip install -r requirements.txt && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     stdin_open: true
     tty: true
     env_file:

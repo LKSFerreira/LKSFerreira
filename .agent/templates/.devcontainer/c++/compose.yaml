@@ -1,8 +1,8 @@
 # =============================================================================
-# Docker Compose - Go (Fiber/Gin/Echo)
+# Docker Compose - C++ (Otimizado com Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
-# App: http://localhost:8080
+# App: Execução Standalone
 # =============================================================================
 
 services:
@@ -16,24 +16,19 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   app:
-    image: "golang:1.22-alpine"
-    ports:
-      - "8080:8080"
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.cpp
+      target: dev # A mágica acontece aqui: usamos só o estágio de desenvolvimento!
     volumes:
       - ../:/app
-      - go-cache:/go/pkg/mod
     working_dir: /app
-    command: sh -c "go mod download && go run ."
     stdin_open: true
     tty: true
     env_file:
       - ../.env.development
-    environment:
-      - GO_ENV=development
-      - CGO_ENABLED=0
     depends_on:
       - database
 
 volumes:
   postgres-data:
-  go-cache:

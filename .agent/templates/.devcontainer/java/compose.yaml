@@ -1,8 +1,8 @@
 # =============================================================================
-# Docker Compose - PHP com Laravel
+# Docker Compose - Java (Otimizado com Multi-stage Cache)
 # =============================================================================
 # Uso: docker compose up
-# App: http://localhost:8000
+# App: Execução standalone
 # =============================================================================
 
 services:
@@ -15,31 +15,24 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
-  redis:
-    image: "redis:7-alpine"
-    ports:
-      - "6379:6379"
-
   app:
-    image: "php:8.3-cli-alpine"
-    ports:
-      - "8000:8000"
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.java
+      target: dev
     volumes:
       - ../:/app
-      - composer-cache:/root/.composer
+      - maven-cache:/root/.m2
+      - gradle-cache:/root/.gradle
     working_dir: /app
-    command: sh -c "composer install && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"
     stdin_open: true
     tty: true
     env_file:
       - ../.env.development
-    environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
     depends_on:
       - database
-      - redis
 
 volumes:
   postgres-data:
-  composer-cache:
+  maven-cache:
+  gradle-cache:

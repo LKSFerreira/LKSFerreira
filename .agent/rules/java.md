@@ -6,17 +6,15 @@ description: Convenções Java, estrutura de projeto (puro e Spring Boot), coman
 # Regras para Java
 
 ## 1. Versão e Ambiente
-
-- **JDK**: 17+ (LTS) ou 21+ (LTS)
-- **IDE**: Qualquer (VS Code, IntelliJ, Eclipse)
+- **JDK**: 17+ (LTS) ou 21+ (LTS).
+- **Recursos Modernos**: Sempre que aplicável e melhorar a legibilidade, utilize recursos do Java moderno (ex: `Records`, `var` para variáveis locais, `Text Blocks` e `Switch Expressions`).
 
 ## 2. Purista vs Framework
 
 ### 2.1 Estrutura para Java Puro
+Ideal para estudar conceitos básicos, algoritmos, lambdas e streams.
 
-Ideal para estudar conceitos básicos, lambdas e streams.
-
-```
+```text
 projeto/
 ├── src/
 │   └── Main.java
@@ -25,25 +23,23 @@ projeto/
 ```
 
 **Compilação e Execução:**
-
 ```bash
-# Compilar
-javac src/Main.java -d out/
+# Compilar um arquivo
+javac -d out/ src/Main.java
 
 # Executar
 java -cp out/ Main
 
-# Compilar múltiplos arquivos
-javac src/*.java -d out/
+# Compilar múltiplos arquivos no diretório
+javac -d out/ src/*.java
 ```
 
 ---
 
 ### 2.2 Estrutura para Spring Boot
-
 Ideal para estudar Spring Framework, APIs REST e injeção de dependência.
 
-```
+```text
 projeto/
 ├── src/
 │   └── main/
@@ -52,15 +48,14 @@ projeto/
 │       │       └── Application.java
 │       └── resources/
 │           └── application.properties
-├── pom.xml
+├── pom.xml (ou build.gradle)
 └── README.md
 ```
 
-**Compilação e Execução (Maven):**
-
+**Compilação e Execução (Assuma Maven como padrão, a menos que veja um build.gradle):**
 ```bash
 # Baixar dependências e compilar
-mvn compile
+mvn clean compile
 
 # Executar a aplicação
 mvn spring-boot:run
@@ -69,55 +64,41 @@ mvn spring-boot:run
 mvn test
 
 # Gerar JAR executável
-mvn package
+mvn clean package
 ```
-
-> **Nota:** Projetos Spring Boot são criados via [start.spring.io](https://start.spring.io)
+> **Nota:** Projetos Spring Boot são criados via(https://start.spring.io). Se o projeto usar o wrapper do Maven, utilize `./mvnw` em vez de `mvn`.
 
 ---
 
 ## 3. Convenções de Código
 
-### Nomenclatura
-
-- **Classes**: PascalCase (`GerenciadorProdutos`, `CarrinhoCompras`)
-- **Métodos e variáveis**: camelCase (`calcularTotal`, `nomeCliente`)
-- **Constantes**: SCREAMING_SNAKE_CASE (`TAXA_IMPOSTO`, `URL_API`)
-- **Pacotes**: lowercase (`com.exemplo.servicos`)
+### Nomenclatura (Sempre em pt-BR, conforme regra global)
+- **Classes/Records/Interfaces**: PascalCase (`GerenciadorProdutos`, `CarrinhoCompras`).
+- **Métodos e Variáveis**: camelCase (`calcularTotal`, `nomeCliente`).
+- **Constantes**: SCREAMING_SNAKE_CASE (`TAXA_IMPOSTO`, `URL_API`).
+- **Pacotes**: lowercase e sem caracteres especiais (`com.exemplo.servicos`).
 
 ### Boas Práticas
-
-- Uma classe pública por arquivo
-- Nome do arquivo = nome da classe
-- Usar modificadores de acesso explícitos (`private`, `public`)
+- Uma classe pública por arquivo.
+- Nome do arquivo = nome da classe.
+- Use modificadores de acesso explícitos (`private`, `public`, `protected`).
+- **Imutabilidade**: Priorize o uso de `final` para variáveis e atributos que não devem ser alterados.
 
 ## 4. Conceitos do Curso (Lambdas e Streams)
+- **Lambda Expressions**: Sintaxe `(parametros) -> expressao`. Usadas com interfaces funcionais (`Consumer`, `Predicate`, `Function`).
+- **Stream API**: 
+  - Operações intermediárias: `filter()`, `map()`, `sorted()`.
+  - Operações terminais: `collect()`, `forEach()`, `reduce()`.
+  - Lembre-se: Streams são *lazy* (executam só quando necessário).
+- **Method References**: `Classe::metodo` ou `Classe::new`.
 
-### Lambda Expressions
-
-- Sintaxe: `(parâmetros) -> expressão`
-- Usadas com interfaces funcionais (`Consumer`, `Predicate`, `Function`)
-
-### Stream API
-
-- Operações intermediárias: `filter()`, `map()`, `sorted()`
-- Operações terminais: `collect()`, `forEach()`, `reduce()`
-- Streams são lazy (executam só quando necessário)
-
-### Method References
-
-- Referência a método: `Classe::metodo`
-- Referência a construtor: `Classe::new`
-
-## 5. Spring Framework (Básico)
-
-- **Injeção de Dependência**: `@Autowired`
-- **Componentes**: `@Component`, `@Service`, `@Repository`
-- **Configuração**: `application.properties` ou `application.yml`
+## 5. Spring Framework (Boas Práticas)
+- **Injeção de Dependência**: **Evite** usar `@Autowired` em atributos (Field Injection). Priorize sempre a **Injeção via Construtor** (Constructor Injection), seja manualmente ou usando `@RequiredArgsConstructor` do Lombok.
+- **Componentes**: `@Component`, `@Service`, `@Repository`, `@RestController`.
+- **Configuração**: `application.properties` ou `application.yml`.
 
 ## 6. Ambiente Docker (DevContainer)
-
-Para estudar sem instalar Java localmente:
+Para rodar/estudar sem instalar o Java localmente:
 
 ```yaml
 # compose.yaml

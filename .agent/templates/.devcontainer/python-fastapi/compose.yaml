@@ -1,9 +1,5 @@
 # =============================================================================
-# Docker Compose - Python com FastAPI
-# =============================================================================
-# Uso: docker compose up
-# App: http://localhost:8000
-# Docs: http://localhost:8000/docs
+# Docker Compose - Python com FastAPI (Otimizado com Cache e UV)
 # =============================================================================
 
 services:
@@ -17,18 +13,27 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   app:
-    image: "python:3.12-alpine"
+    # Em vez de usar a imagem crua, mandamos ele construir o nosso Dockerfile
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.python
+      target: dev # Lembra dos estágios? Aqui chamamos só o ambiente de Dev!
     ports:
       - "8000:8000"
     volumes:
       - ../:/app
     working_dir: /app
-    command: sh -c "pip install -r requirements.txt && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+
+    # Olha a mágica: Como a instalação já ocorreu no build da imagem via Dockerfile,
+    # o comando do container agora SÓ se preocupa em rodar o Hot Reload!
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
     stdin_open: true
     tty: true
     env_file:
       - ../.env.development
     environment:
+      - PYTHON_ENV=development
       - PYTHONUNBUFFERED=1
       - PYTHONDONTWRITEBYTECODE=1
     depends_on:

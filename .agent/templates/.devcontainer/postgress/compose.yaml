@@ -1,0 +1,23 @@
+# =============================================================================
+# Docker Compose - Postgres (Otimizado)
+# =============================================================================
+# Uso: docker compose up
+# App: Banco de dados standalone
+# =============================================================================
+
+services:
+  database:
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile.postgress
+      target: dev
+    env_file:
+      - ../.env.development
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres-data:
