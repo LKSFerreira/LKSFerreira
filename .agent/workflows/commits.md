@@ -32,7 +32,7 @@ Sempre que eu solicitar a criação de um commit, analise as alterações staged
 - Arquivos, diretórios, funções, métodos, variáveis, rotas ou qualquer outra referência específica devem estar encapsuladas por 2 crases (` `).
 
 ### A saída deve conter apenas a mensagem de commit no padrão:
-':emoji_code: tipo: Descrição sucinta da mudança referenciando `xpto`'
+- ':emoji_code: tipo: Descrição sucinta da mudança referenciando `xpto`'
 
 ### **Exemplos de saída:**
 - ':broom: cleanup: remove logs de debug da função `validarPagamento()`'
