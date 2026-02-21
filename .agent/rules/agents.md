@@ -35,4 +35,4 @@ As regras de ambiente, execução, dependências e documentação são específi
 - Java -> `.agent/rules/java.md`
 - JavaScript -> `.agent/rules/javascript.md`
 
-> **Nota:** O campo `LINGUAGEM_PROJETO` é preenchido automaticamente pelo workflow `/start` durante a inicialização do projeto.
+> **Nota:** O campo `LINGUAGEM_PROJETO` é preenchido automaticamente pelo workflow `/init` durante a inicialização do projeto.
