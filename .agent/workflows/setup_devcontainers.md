@@ -18,6 +18,7 @@ Sempre que solicitado para configurar o ambiente Docker, atue como Especialista 
 ## 1. Fase de Reconhecimento e Preparação
 
 - Identifique a stack através dos arquivos de manifesto (`package.json`, `requirements.txt`, `go.mod`, etc.).
+- Analise o arquivo `readme_templates.md`.
 - Verifique os templates disponíveis em `.agent/templates/.devcontainer/`:
 
 | Linguagem                 | Template              |
@@ -119,8 +120,8 @@ bash dev.sh
 
 **Outros Comandos Úteis**
 Execute a partir da raiz (ou acesse a pasta `.devcontainer/`):
-| Comando                                          | Descrição                           |
-| ------------------------------------------------ | ----------------------------------- |
+| Comando                                                | Descrição                           |
+| ------------------------------------------------------ | ----------------------------------- |
 | `docker compose -f .devcontainer/compose.yaml down`    | Para os containers                  |
 | `docker compose -f .devcontainer/compose.yaml down -v` | Para e remove volumes (limpa banco) |
 | `docker compose -f .devcontainer/compose.yaml logs -f` | Mostra logs da aplicação e serviços |
