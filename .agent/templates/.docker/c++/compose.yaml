@@ -1,0 +1,27 @@
+# =============================================================================
+# Docker Compose - C++ (Otimizado com Multi-stage Cache)
+# =============================================================================
+# Uso: docker compose up
+# App: Execução Standalone
+# =============================================================================
+
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile.cpp
+      target: dev # A mágica acontece aqui: usamos só o estágio de desenvolvimento!
+    volumes:
+      - ../:/app
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env.development
+    environment:
+      - CPP_ENV=development
+    depends_on:
+      - database
+
+volumes:
+  postgres-data:

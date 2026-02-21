@@ -1,0 +1,30 @@
+# =============================================================================
+# Docker Compose - PHP com Laravel (Otimizado com Multi-stage Cache)
+# =============================================================================
+# Uso: docker compose up
+# App: http://localhost:8000
+# =============================================================================
+
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile.php
+      target: dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../:/var/www/html
+      - vendor-cache:/var/www/html/vendor
+    working_dir: /var/www/html
+    command: sh -c "composer install && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env.development
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+
+volumes:
+  vendor-cache:

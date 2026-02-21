@@ -97,7 +97,7 @@ mvn clean package
 - **Componentes**: `@Component`, `@Service`, `@Repository`, `@RestController`.
 - **Configuração**: `application.properties` ou `application.yml`.
 
-## 6. Ambiente Docker (DevContainer)
+## 6. Ambiente Docker (Docker)
 Para rodar/estudar sem instalar o Java localmente:
 
 ```yaml

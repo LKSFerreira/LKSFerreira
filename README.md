@@ -1,6 +1,6 @@
 # 🚀 Vibe Coding Workspace & Agent Workflows
 
-Bem-vindo ao seu **Ambiente de Estudos e Laboratório Prático**. Este repositório funciona como uma **"Caixa de Ferramentas" (Toolbox) Educacional** gerenciada por Agentes IA que atuarão como seus mentores e tutores. Ele contém templates dinâmicos, pipelines de DevContainers otimizados e regras de comportamento para organizar o caos, documentar e acelerar o ensino e entrega de qualquer projeto.
+Bem-vindo ao seu **Ambiente de Estudos e Laboratório Prático**. Este repositório funciona como uma **"Caixa de Ferramentas" (Toolbox) Educacional** gerenciada por Agentes IA que atuarão como seus mentores e tutores. Ele contém templates dinâmicos, pipelines de ambientes Docker otimizados e regras de comportamento para organizar o caos, documentar e acelerar o ensino e entrega de qualquer projeto.
 
 Este guia explica o ecossistema de fluxos (`Workflows`) para iniciar um projeto educacional do zero ou como reconectar de forma segura e guiada aos seus estudos em andamento.
 
@@ -9,7 +9,7 @@ Este guia explica o ecossistema de fluxos (`Workflows`) para iniciar um projeto 
 ## 🛠️ O Que é Este Repositório?
 Este repositório fornece a base arquitetural para suas ideias e estudos. Suas pastas ocultas contêm o núcleo do sistema didático:
 - **`.agent/workflows/`**: Comandos Slash (ex: `/init`) que definem passos lógicos estritos para o Agente executar como tutor.
-- **`.agent/templates/`**: Blueprints e arquivos de referência "Ouro" repletos de comentários explicativos para entender a infraestrutura (Docker, Devcontainers).
+- **`.agent/templates/`**: Blueprints e arquivos de referência "Ouro" repletos de comentários explicativos para entender a infraestrutura (Docker, ambientes de container).
 - **`.agent/rules/`**: Diretrizes de estilo, linguagem e comportamento para forçar a IA a manter o padrão do projeto e priorizar explicações detalhadas voltadas ao aprendizado.
 
 ---
@@ -25,8 +25,8 @@ Quando você clonar ou esvaziar a raiz para começar uma nova ideia de estudo:
    - **O que faz:** Analisa os arquivos para detectar a stack predominante. Gera automaticamente as documentações vitais (`.metadocs/roadmap.md`, regras `.agent/rules/<linguagem>.md` e o `README.md` do repositório) e assina a tag de linguagem do agente mentor. O código gerado terá foco didático.
    - **Quando usar:** No primeiríssimo prompt do experimento, logo após inserir os arquivos base ou gerar o boilerplate inicial.
 
-2. **`/setup_devcontainers`** (Bootstrapping de Infraestrutura)
-   - **O que faz:** Pega as arquiteturas dos templates "Ouro" e constrói a pasta `.devcontainer/` real na raiz do seu projeto. Cria os arquivos locais `.env` e o utilitário `dev.sh` (Injetando IP dinâmico para hot-reload confiável em qualquer SO).
+2. **`/setup_docker`** (Bootstrapping de Infraestrutura)
+   - **O que faz:** Pega as arquiteturas dos templates "Ouro" e constrói a pasta `.docker/` real na raiz do seu projeto. Cria os arquivos locais `.env` e o utilitário `dev.sh` (Injetando IP dinâmico para hot-reload confiável em qualquer SO).
    - **Quando usar:** Logo em seguida ao `/init`, para ter seu ambiente Docker e Banco de Dados rodando em questão de segundos.
 
 ---
@@ -57,6 +57,6 @@ Enquanto você trabalha ("vibe coding"), use os ajudantes de versionamento restr
 ## 💡 Melhores Práticas de Vibe Coding
 
 - **Use e Abuse do Roadmap**: A IA perde contexto facilmente em laboratórios extensos. O segredo da consistência é sempre manter um passo a passo do estudo perfeitamente refletido no `.metadocs/roadmap.md`.
-- **Arquitetura Multi-stage e Comentários**: Seus contêineres usam a estratégia de Ouro desenhadas na subpasta `.devcontainer/`. Modifique suas dependências via arquivo de pacotes nativos da linguagem e no *rebuild* o cache do Docker persistirá as atualizações instantaneamente, lendo sempre os comentários explicativos para entender a estrutura!
+- **Arquitetura Multi-stage e Comentários**: Seus contêineres usam a estratégia de Ouro desenhadas na subpasta `.docker/`. Modifique suas dependências via arquivo de pacotes nativos da linguagem e no *rebuild* o cache do Docker persistirá as atualizações instantaneamente, lendo sempre os comentários explicativos para entender a estrutura!
 
 > Desenvolva rápido e deixe fluir na 'vibe', mas deixe o Agente manter a estrutura viva e formal para você. Conte sempre com o seu IA focado em didática para te manter nos eixos. Bons estudos!

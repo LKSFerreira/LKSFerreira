@@ -1,0 +1,29 @@
+# =============================================================================
+# Docker Compose - Python com FastAPI (Otimizado com Cache e UV)
+# =============================================================================
+
+services:
+  app:
+    # Em vez de usar a imagem crua, mandamos ele construir o nosso Dockerfile
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile.python
+      target: dev # Lembra dos estágios? Aqui chamamos só o ambiente de Dev!
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../:/app
+    working_dir: /app
+
+    # Olha a mágica: Como a instalação já ocorreu no build da imagem via Dockerfile,
+    # o comando do container agora SÓ se preocupa em rodar o Hot Reload!
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env.development
+    environment:
+      - PYTHON_ENV=development
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1

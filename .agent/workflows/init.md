@@ -40,7 +40,7 @@ Após a execução, forneça um resumo das ações realizadas:
 2. Quais arquivos foram criados ou atualizados.
 3. Confirmação de que o ambiente está pronto para o workflow de Docker.
 
-**NOTIFICAÇÃO:** "Configuração inicial concluída. Para configurar o ambiente Docker, execute o comando `/setup_devcontainers`."
+**NOTIFICAÇÃO:** "Configuração inicial concluída. Para configurar o ambiente Docker, execute o comando `/setup_docker`."
 
 ---
 
