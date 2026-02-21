@@ -6,15 +6,6 @@
 # =============================================================================
 
 services:
-  database:
-    image: "postgres:16-alpine"
-    env_file:
-      - ../.env.development
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
   app:
     build:
       context: ../
@@ -31,11 +22,9 @@ services:
     env_file:
       - ../.env.development
     environment:
+      - JAVA_ENV=development
       - SPRING_PROFILES_ACTIVE=dev
       - JAVA_TOOL_OPTIONS=-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0
-    depends_on:
-      - database
 
 volumes:
-  postgres-data:
   maven-cache:

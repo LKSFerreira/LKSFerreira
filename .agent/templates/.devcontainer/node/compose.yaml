@@ -28,6 +28,3 @@ services:
       - HOST_IP=${HOST_IP:-}
     env_file:
       - ../.env
-
-volumes:
-  postgres-data:

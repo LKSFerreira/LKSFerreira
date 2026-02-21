@@ -6,15 +6,6 @@
 # =============================================================================
 
 services:
-  database:
-    image: "postgres:16-alpine"
-    env_file:
-      - ../.env.development
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
   app:
     build:
       context: ../
@@ -33,8 +24,3 @@ services:
     environment:
       - NODE_ENV=development
       - WATCHPACK_POLLING=true
-    depends_on:
-      - database
-
-volumes:
-  postgres-data:
