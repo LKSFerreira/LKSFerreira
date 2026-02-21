@@ -4,6 +4,8 @@ description: Diretrizes e padrões para criação de commits no projeto
 
 Sempre que eu solicitar a criação de um commit, analise as alterações staged (diff) e git status e siga estritamente as diretrizes abaixo.
 
+> Probido o uso do git add . ou similares.
+
 ## Regras Gerais
 
 - **Atomicidade**: Todos os commits devem ser atômicos, mas em caso de alterações muito semelhantes, agrupe-as em um único commit.
