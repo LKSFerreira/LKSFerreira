@@ -8,6 +8,7 @@ Atue como um **Mentor Técnico focando em Estruturação de Laboratórios de Est
 Verifique a existência dos seguintes diretórios e arquivos. Caso não existam, **crie-os imediatamente** com conteúdo básico (boilerplate):
 
 - `.agent/rules/agents.md`: Regras globais de comportamento didático e tutoria do agente.
+- `.agent/rules/workflow.md`: Fluxo obrigatório e inegociável de execução.
 - `.metadocs/roadmap.md`: Lista passo a passo de tarefas e tópicos de aprendizado do experimento.
 - `README.md`: Documentação principal focando no objetivo de estudo e conceitos aplicados.
 
@@ -26,8 +27,8 @@ Analise os arquivos na raiz para determinar a linguagem dominante.
 ## 3. Configuração de Regras (Escrita de Arquivos)
 
 ### Passo A: Atualizar agents.md
-Localize a tag `<!-- LINGUAGEM_PROJETO: ... -->` no arquivo `.agent/rules/agents.md` e atualize-a com a linguagem identificada. 
-*Exemplo:* `<!-- LINGUAGEM_PROJETO: typescript -->`
+Localize a tag `> LINGUAGEM_PROJETO: <linguagem>` no arquivo `.agent/rules/agents.md` e atualize-a com a linguagem identificada. 
+*Exemplo:* `> LINGUAGEM_PROJETO: typescript`
 
 ### Passo B: Regras Específicas da Linguagem
 Verifique se `.agent/rules/<linguagem>.md` existe.

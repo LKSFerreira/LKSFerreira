@@ -1,16 +1,16 @@
-# 🚀 Laboratório de Estudos & Agent Workflows
+# 🚀 Vibe Coding Workspace & Agent Workflows
 
-Bem-vindo ao seu **Ambiente de Estudos e Laboratório Prático**. Este repositório funciona como uma **"Caixa de Ferramentas" (Toolbox) Educacional** gerenciada por Agentes IA que atuarão como seus mentores e tutores. Ele contém templates didáticos, pipelines otimizados e regras focadas no aprendizado passo a passo.
+Bem-vindo ao seu **Ambiente de Estudos e Laboratório Prático**. Este repositório funciona como uma **"Caixa de Ferramentas" (Toolbox) Educacional** gerenciada por Agentes IA que atuarão como seus mentores e tutores. Ele contém templates dinâmicos, pipelines de DevContainers otimizados e regras de comportamento para organizar o caos, documentar e acelerar o ensino e entrega de qualquer projeto.
 
-Este guia explica o ecossistema de fluxos (`Workflows`) para iniciar um experimento do zero ou reconectar de forma guiada aos seus estudos em andamento.
+Este guia explica o ecossistema de fluxos (`Workflows`) para iniciar um projeto educacional do zero ou como reconectar de forma segura e guiada aos seus estudos em andamento.
 
 ---
 
 ## 🛠️ O Que é Este Repositório?
 Este repositório fornece a base arquitetural para suas ideias e estudos. Suas pastas ocultas contêm o núcleo do sistema didático:
-- **`.agent/workflows/`**: Comandos Slash (ex: `/init`) que definem passos lógicos estruturados para o Agente executar como tutor.
+- **`.agent/workflows/`**: Comandos Slash (ex: `/init`) que definem passos lógicos estritos para o Agente executar como tutor.
 - **`.agent/templates/`**: Blueprints e arquivos de referência "Ouro" repletos de comentários explicativos para entender a infraestrutura (Docker, Devcontainers).
-- **`.agent/rules/`**: Diretrizes de estilo, linguagem e comportamento para forçar a IA a priorizar explicações detalhadas e código limpo para aprendizado.
+- **`.agent/rules/`**: Diretrizes de estilo, linguagem e comportamento para forçar a IA a manter o padrão do projeto e priorizar explicações detalhadas voltadas ao aprendizado.
 
 ---
 
@@ -57,6 +57,6 @@ Enquanto você trabalha ("vibe coding"), use os ajudantes de versionamento restr
 ## 💡 Melhores Práticas de Vibe Coding
 
 - **Use e Abuse do Roadmap**: A IA perde contexto facilmente em laboratórios extensos. O segredo da consistência é sempre manter um passo a passo do estudo perfeitamente refletido no `.metadocs/roadmap.md`.
-- **Arquitetura Multi-stage e Comentários**: Seus contêineres usam a estratégia de Ouro desenhadas na subpasta `.devcontainer/`, repletas de comentários explicativos que ensinam por que cada linha está ali. Leia-os!
+- **Arquitetura Multi-stage e Comentários**: Seus contêineres usam a estratégia de Ouro desenhadas na subpasta `.devcontainer/`. Modifique suas dependências via arquivo de pacotes nativos da linguagem e no *rebuild* o cache do Docker persistirá as atualizações instantaneamente, lendo sempre os comentários explicativos para entender a estrutura!
 
-> Siga o passo a passo, explore a fundo o código e conte sempre com o seu IA focado em didática para te manter nos eixos. Bons estudos!
+> Desenvolva rápido e deixe fluir na 'vibe', mas deixe o Agente manter a estrutura viva e formal para você. Conte sempre com o seu IA focado em didática para te manter nos eixos. Bons estudos!

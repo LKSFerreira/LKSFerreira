@@ -2,11 +2,11 @@
 description: Diretrizes e padrões para criação de commits no projeto
 ---
 
-Sempre que eu solicitar a criação de um commit, analise as alterações staged (diff) e siga estritamente as regras de atomicidade e formatação abaixo.
+Sempre que eu solicitar a criação de um commit, analise as alterações staged (diff) e git status e siga estritamente as diretrizes abaixo.
 
 ## Regras Gerais
 
-- **Atomicidade**: Os commits devem ser atômicos (uma alteração lógica por vez). Se houver múltiplas alterações não relacionadas, sugira dividi-las.
+- **Atomicidade**: Todos os commits devem ser atômicos, mas em caso de alterações muito semelhantes, agrupe-as em um único commit.
 - **Formato dos Emojis**: Use **APENAS** o código do emoji (ex: `:tada:`). Nunca inclua o caractere Unicode/desenho visual do emoji.
 - **Idioma**: A descrição do commit deve ser em [PT-BR/EN - escolha um e mantenha].
 

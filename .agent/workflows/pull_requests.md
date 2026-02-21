@@ -21,7 +21,7 @@ Gere a saída seguindo este template estrito, extraindo as informações do `git
 
 ## 🎯 Visão Geral de Aprendizado
 Consolidação do Estudo da [Etapa] do Roadmap. Foco em compreender **[Conceito Principal]** através de **[Técnica/Ferramenta]**. 
-*O que foi aprendido/resolvido:* [Descreva o insight ou erro compreendido e evitado].
+*Problema resolvido ou o que foi aprendido:* [Descreva o benefício claro ou erro evitado e compreendido].
 
 ## 🛠️ Alterações Realizadas
 
@@ -38,7 +38,7 @@ Consolidação do Estudo da [Etapa] do Roadmap. Foco em compreender **[Conceito 
 
 ## 📈 Resultados e Insights Técnicos
 - **Validação:** O comando `[comando]` testado retorna `[resultado]`.
-- **Conhecimento Adquirido:** [O que isso provou ou ensinou na prática].
+- **Benefício e Conhecimento:** [Melhoria observada e o que isso provou ou ensinou na prática].
 
 ## 🧪 Como Validar?
 1. **Ambiente:** [Comando de ativação/setup]
