@@ -6,20 +6,6 @@
 # =============================================================================
 
 services:
-  database:
-    image: "postgres:16-alpine"
-    env_file:
-      - ../.env.development
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
-  redis:
-    image: "redis:7-alpine"
-    ports:
-      - "6379:6379"
-
   app:
     build:
       context: ../
@@ -39,11 +25,6 @@ services:
     environment:
       - APP_ENV=local
       - APP_DEBUG=true
-    depends_on:
-      - database
-      - redis
 
 volumes:
-  postgres-data:
   vendor-cache:
-  composer-cache:

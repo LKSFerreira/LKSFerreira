@@ -6,15 +6,6 @@
 # =============================================================================
 
 services:
-  database:
-    image: "postgres:16-alpine"
-    env_file:
-      - ../.env.development
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
   app:
     build:
       context: ../
@@ -27,6 +18,8 @@ services:
     tty: true
     env_file:
       - ../.env.development
+    environment:
+      - CPP_ENV=development
     depends_on:
       - database
 

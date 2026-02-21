@@ -3,15 +3,6 @@
 # =============================================================================
 
 services:
-  database:
-    image: "postgres:16-alpine"
-    env_file:
-      - ../.env.development
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
   app:
     # Em vez de usar a imagem crua, mandamos ele construir o nosso Dockerfile
     build:
@@ -36,8 +27,3 @@ services:
       - PYTHON_ENV=development
       - PYTHONUNBUFFERED=1
       - PYTHONDONTWRITEBYTECODE=1
-    depends_on:
-      - database
-
-volumes:
-  postgres-data:
