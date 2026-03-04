@@ -6,13 +6,11 @@ description: Convenções C++, padrões modernos (C++17/20), gerenciamento de me
 # Regras para C++
 
 ## 1. Padrão e Compilador
-
 - **Standard**: C++17 ou C++20 (Estritamente C++ moderno).
 - **Compiladores**: GCC, Clang ou MSVC.
 - **Aviso Importante**: **NUNCA** escreva código estilo "C com classes" (C++98/03). Utilize sempre as abstrações modernas da STL (Standard Template Library).
 
 ## 2. Estrutura de Projeto e Build System (CMake)
-
 O **CMake** é o sistema de build padrão absoluto. Não utilize Makefiles puros a menos que seja explicitamente solicitado.
 
 ```text
@@ -26,7 +24,6 @@ projeto/
 ```
 
 **Comandos Padrão (CMake):**
-
 ```bash
 # Configurar o projeto (gerar arquivos de build)
 cmake -S . -B build
@@ -41,25 +38,23 @@ cd build && ctest
 ## 3. Convenções de Código
 
 ### Nomenclatura (Sempre em pt-BR)
-
 - **Classes e Structs**: PascalCase (`GerenciadorMemoria`, `VetorDinamico`).
-- **Métodos e Variáveis**: snake_case (`calcular_total`, `usuario_atual`) - _Padrão da STL_.
+- **Métodos e Variáveis**: snake_case (`calcular_total`, `usuario_atual`) - *Padrão da STL*.
 - **Constantes e Macros**: SCREAMING_SNAKE_CASE (`TAXA_MAXIMA`, `TAMANHO_BUFFER`). Evite macros (`#define`), prefira `constexpr`.
 - **Namespaces**: snake_case (`namespace sistema_bancario`).
 
 ### Boas Práticas de Arquitetura
-
 - Separe declaração (`.hpp` ou `.h`) da implementação (`.cpp`).
-- Use `#pragma once` no topo de todos os arquivos de cabeçalho (evite os antigos _include guards_ `#ifndef`).
+- Use `#pragma once` no topo de todos os arquivos de cabeçalho (evite os antigos *include guards* `#ifndef`).
 - Evite `using namespace std;` em arquivos globais ou de cabeçalho para não poluir o escopo.
 
 ## 4. C++ Moderno e Gerenciamento de Memória (CRUCIAL)
 
 A regra de ouro é: **Evite vazamento de memória e cópias desnecessárias.**
 
-- **Ponteiros e Alocação**:
+- **Ponteiros e Alocação**: 
   - **PROIBIDO** usar `new` e `delete` (ponteiros crus/raw pointers), a menos que esteja escrevendo um alocador customizado.
-  - Use **Smart Pointers**: `std::unique_ptr` (padrão) e `std::shared_ptr` (apenas quando o _ownership_ for compartilhado).
+  - Use **Smart Pointers**: `std::unique_ptr` (padrão) e `std::shared_ptr` (apenas quando o *ownership* for compartilhado).
   - Instancie com `std::make_unique` e `std::make_shared`.
 - **Passagem de Parâmetros**:
   - Tipos primitivos (`int`, `float`): Passe por valor.
@@ -68,76 +63,25 @@ A regra de ouro é: **Evite vazamento de memória e cópias desnecessárias.**
 - **Strings**: Use `std::string`. Se for apenas para leitura/passagem de parâmetro, prefira `std::string_view` (C++17).
 
 ## 5. Testes
-
 - **Framework**: Google Test (GTest) ou Catch2.
 - **Nomenclatura**: Arquivos de teste devem terminar com `_test.cpp` (ex: `calculadora_test.cpp`).
 
 ## 6. Formatação e Linting
-
 - **Formatador**: Assuma o uso do `clang-format`. Respeite o arquivo `.clang-format` na raiz do projeto.
 - **Linter/Análise Estática**: Assuma o uso do `clang-tidy` para capturar bugs e sugerir modernizações no código.
 
 ## 7. Documentação (Doxygen)
-
 Use o padrão Doxygen para documentar classes e métodos públicos nos arquivos de cabeçalho (`.hpp`). Não polua o `.cpp` com documentação de interface.
 
 **Exemplo:**
-
 ```cpp
 /**
  * @brief Processa o pagamento de um cliente.
- *
+ * 
  * @param valor_compra O valor total da compra.
  * @param id_cliente O identificador único do cliente.
  * @return true Se o pagamento for aprovado.
  * @return false Se o pagamento for recusado.
  */
 bool processar_pagamento(double valor_compra, const std::string& id_cliente);
-```
-
-### 7.1: Comentários Didáticos Inline
-
-Este repositório é de **ESTUDOS**. Além do Doxygen, o código deve conter **comentários inline didáticos** que sirvam como material de aprendizado para quem lê.
-
-**Regras:**
-
-1. Toda instrução não-trivial deve ter um comentário `//` acima explicando **o que faz** e **por quê**.
-2. Blocos lógicos (loops, condicionais, `try/catch`) devem ter um comentário de abertura contextualizando o bloco inteiro.
-3. Variáveis com nomes curtos ou técnicos devem ter um comentário ao lado explicando seu propósito.
-4. `#include` de bibliotecas externas devem ter um comentário rápido explicando para que servem.
-5. Comentários em **pt-BR**, com linguagem acessível a iniciantes.
-6. Comentários complementam o Doxygen, **NÃO** o substituem.
-
-**Exemplo Prático:**
-
-```cpp
-// <vector> = container dinâmico da STL (equivalente a um array que cresce sozinho)
-#include <vector>
-
-// <algorithm> = fornece funções prontas como sort(), find(), etc.
-#include <algorithm>
-
-// <numeric> = funções matemáticas como accumulate() para somar elementos
-#include <numeric>
-
-/**
- * @brief Calcula a média de uma lista de notas.
- * @param notas Vetor contendo as notas dos alunos.
- * @return A média aritmética das notas.
- */
-double calcular_media(const std::vector<double>& notas) {
-    // Se o vetor estiver vazio, retorna 0.0 para evitar divisão por zero
-    if (notas.empty()) {
-        return 0.0;
-    }
-
-    // accumulate() soma todos os elementos do vetor, começando do valor 0.0
-    // Usamos 0.0 (double) em vez de 0 (int) para garantir precisão decimal
-    double soma = std::accumulate(notas.begin(), notas.end(), 0.0);
-
-    // Divide a soma pelo número de elementos para obter a média aritmética
-    // static_cast<double> converte o size_t (inteiro) para double,
-    // garantindo que a divisão seja em ponto flutuante
-    return soma / static_cast<double>(notas.size());
-}
 ```
