@@ -18,41 +18,5 @@ Execute as etapas abaixo para garantir um versionamento atômico e organizado:
 ---
 
 ## Relatório de Entrega:
-> \ de escapa não deve ser usada para as mensagem do relátorio.
-> Use o caminho absoluto de cada arquivo para exibir no relatório.
 
-Ao finalizar, você deve apresentar um resumo. Utilize o modelo abaixo:
-
-### Versionamento Concluído
-
-Foram realizados os seguintes commits:
-
-- `Mensagem resumida`
-[.raiz_do_projeto/caminho/do/arquivo1.eg](.[caminho_absoluto]/arquivo1.eg)
-[.raiz_do_projeto/caminho/do/arquivo2.eg](.[caminho_absoluto]]/arquivo2.eg)
-
----
-
-- `Outra mensagem que foi resumida`
-[.raiz_do_projeto/caminho/do/arquivo3.eg](.[pwd]/caminho/do/arquivo3.eg]
-
----
-
-***
-
-## Exemplo real:
-
-### Versionamento Concluído
-
-Foram realizados os seguintes commits:
-
-- `Corrigido mal comportamento do agente durante commits`
-[.agents/rules/git.md](c:/GitHub/projeto/.agents/rules/git.md)
-[.agents/rules/git.md](c:/Documents/GitHub/projeto/.agents/workflows/commit.md)
-
----
-
-- `Adicionado termo test*.md no arquivo .gitignore`
-[.gitignore](c:/Documents/GitHub/projeto/.gitignored)
-
----
+Ao finalizar, você deve apresentar um resumo com Walkthrough detalhado.
