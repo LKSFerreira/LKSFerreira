@@ -3,11 +3,11 @@
 # =============================================================================
 
 services:
-  app:
+  backend:
     # Em vez de usar a imagem crua, mandamos ele construir o nosso Dockerfile
     build:
       context: ../
-      dockerfile: .devcontainer/Dockerfile.python
+      dockerfile: .docker/Dockerfile.python
       target: dev # Lembra dos estágios? Aqui chamamos só o ambiente de Dev!
     ports:
       - "8000:8000"
@@ -22,7 +22,7 @@ services:
     stdin_open: true
     tty: true
     env_file:
-      - ../.env.development
+      - ../.env
     environment:
       - PYTHON_ENV=development
       - PYTHONUNBUFFERED=1

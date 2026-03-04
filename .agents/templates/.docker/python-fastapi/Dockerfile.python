@@ -1,0 +1,42 @@
+# ==========================================
+# ESTAGIO 1: BASE E DEPENDENCIAS (CACHE)
+# ==========================================
+FROM python:3.12-slim AS base
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Dependencia de runtime do psycopg2-binary
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libpq5 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Usa uv como instalador principal de dependencias Python
+RUN pip install --no-cache-dir uv
+
+# Copiamos o manifesto para aproveitar cache de layer
+COPY pyproject.toml ./
+
+# Somente dependencias realmente usadas pelos scripts atuais
+RUN uv pip install --system --no-cache \
+    pandas \
+    psycopg2-binary \
+    python-dotenv
+
+# ==========================================
+# ESTAGIO 2: DESENVOLVIMENTO (DevContainer)
+# ==========================================
+FROM base AS dev
+# Aqui NAO copiamos o codigo. Ele vem pelo Bind Mount (volumes do compose.yaml).
+# Mantém o container vivo para a IDE.
+CMD ["tail", "-f", "/dev/null"]
+
+# ==========================================
+# ESTAGIO 3: PRODUCAO (Deploy)
+# ==========================================
+FROM base AS prod
+# Aqui aplicamos a Etapa 2 da "dica de ouro": copiamos o código final.
+COPY . .
+# Comando real para rodar a aplicação em produção
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,13 +1,13 @@
----
+﻿---
 trigger: model_decision
 description: Regras para Python, gerenciamento com uv, tipagem moderna e docstrings RST.
 ---
 
-# Regras Específicas para Python
+# Regras Específicas para Python:
 
 Este arquivo define todas as regras específicas para projetos Python.
 
-## 1. Gerenciamento de Dependências com `uv`
+## 1: Gerenciamento de Dependências com `uv`
 Este projeto adotou o **uv** (Astral) como gerenciador de pacotes e ambientes padrão.
 
 **Regras de Execução:**
@@ -30,7 +30,7 @@ uv run main.py
 uv run pytest
 ```
 
-## 1.1 Ambiente Dev Container
+## 1.1: Ambiente Dev Container:
 No Docker, o `uv` já está configurado. O Dockerfile cuida da instalação inicial (`uv sync`).
 
 **Comandos no Container:**
@@ -39,12 +39,12 @@ No Docker, o `uv` já está configurado. O Dockerfile cuida da instalação inic
 uv add pacote
 ```
 
-## 2. Padrão de Código e Tipagem (Type Hints)
+## 2: Padrão de Código e Tipagem (Type Hints)
 - **Tipagem Moderna (Python 3.10+)**: Use os tipos nativos (`list`, `dict`, `tuple`) em vez de importá-los do módulo `typing`.
 - **Uniões**: Use o operador `|` (ex: `str | None` em vez de `Optional`).
 - **Linting/Formatação**: Siga o padrão PEP 8. Assuma o uso do **Ruff** (também da Astral) para formatação e linting, caso precise sugerir correções de estilo.
 
-## 3. Padrão de Documentação (Docstrings)
+## 3: Padrão de Documentação (Docstrings)
 O agente deve seguir estritamente o formato **ReStructuredText (RST)** padrão Sphinx.
 
 **Estrutura Obrigatória:**
@@ -102,3 +102,4 @@ class GerenciadorUsuarios:
         """
         # ... implementação ...
 ```
+
