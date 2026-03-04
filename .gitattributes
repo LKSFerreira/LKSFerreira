@@ -1,16 +1,8 @@
-# Handle line endings automatically for files detected as text
+# Auto detect text files and perform LF normalization
 * text=auto
 
-# Force LF for these file types
-*.md text eol=lf
-*.java text eol=lf
-*.xml text eol=lf
-*.properties text eol=lf
-*.yaml text eol=lf
-*.yml text eol=lf
-*.json text eol=lf
+# Force shell scripts to always use LF (Unix) line endings
 *.sh text eol=lf
 
-# Force CRLF for Windows-specific files
-*.bat text eol=crlf
-*.cmd text eol=crlf
+# Markdown docs must stay normalized and UTF-8 in working tree
+*.md text eol=lf working-tree-encoding=UTF-8

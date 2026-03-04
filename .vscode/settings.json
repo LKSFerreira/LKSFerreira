@@ -1,0 +1,22 @@
+{
+  "C_Cpp.errorSquiggles": "Disabled",
+  "go.buildOnSave": "off",
+  "go.lintOnSave": "off",
+  "go.vetOnSave": "off",
+  "go.testOnSave": false,
+  "java.autobuild.enabled": false,
+  "java.configuration.updateBuildConfiguration": "disabled",
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "javascript.validate.enable": false,
+  "php.validate.enable": false,
+  "intelephense.diagnostics.enable": false,
+  "rust-analyzer.checkOnSave": false,
+  "rust-analyzer.diagnostics.enable": false,
+  "typescript.validate.enable": false,
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none",
+    "reportMissingModuleSource": "none"
+  }
+}
