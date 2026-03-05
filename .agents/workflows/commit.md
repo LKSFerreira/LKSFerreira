@@ -1,4 +1,4 @@
----
+﻿---
 description: Workflow para versionamento de código
 ---
 
@@ -20,4 +20,5 @@ Execute as etapas abaixo para garantir um versionamento atômico e organizado:
 
 ## Relatório de Entrega:
 
-Ao finalizar, você deve apresentar um resumo com Walkthrough detalhado das entregas.
+> Disponibilizar o Walkthrough
+

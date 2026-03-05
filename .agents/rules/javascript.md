@@ -44,15 +44,15 @@ src/
 - **Variáveis e Funções**: camelCase (`calcularTotal`, `usuarioAtual`).
 - **Componentes React**: PascalCase (`FormularioProduto`, `ListaCarrinho`).
 - **Constantes**: SCREAMING_SNAKE_CASE (`CHAVE_STORAGE`, `URL_API`).
-- **Tipos/Interfaces**: PascalCase **sem prefixos** (`Produto`, `UsuarioProps`). _Evite usar prefixos como `IUsuario` ou `TipoProduto`, use apenas o nome da entidade._
+- **Tipos/Interfaces**: PascalCase **sem prefixos** (`Produto`, `UsuarioProps`). *Evite usar prefixos como `IUsuario` ou `TipoProduto`, use apenas o nome da entidade.*
 
 ### Declaração e Assincronicidade:
 
 - **Variáveis**: Use `const` por padrão. Use `let` apenas se a variável precisar ser reatribuída. Nunca use `var`.
 - **Assincronicidade**: Priorize `async/await` com blocos `try/catch` em vez de encadeamento de `.then().catch()`.
 - **Funções**:
-  - Preferir _arrow functions_ para funções anônimas e callbacks.
-  - Usar _function declaration_ (`function nomeDaFuncao() {}`) para funções nomeadas exportadas, aproveitando o hoisting.
+  - Preferir *arrow functions* para funções anônimas e callbacks.
+  - Usar *function declaration* (`function nomeDaFuncao() {}`) para funções nomeadas exportadas, aproveitando o hoisting.
 
 ### Imports:
 
@@ -99,10 +99,10 @@ Este repositório é de **ESTUDOS**. Além do JSDoc, o código deve conter **com
 
 ```typescript
 // zod = biblioteca de validação de schemas com inferência de tipo automática
-import { z } from "zod";
+import { z } from 'zod';
 
 // express = framework para criar servidores HTTP e rotas de API
-import express from "express";
+import express from 'express';
 
 /**
  * Schema de validação para criação de um novo usuário.
@@ -137,3 +137,4 @@ function criarUsuario(req: express.Request, res: express.Response) {
   return res.status(201).json({ nome, email, idade });
 }
 ```
+

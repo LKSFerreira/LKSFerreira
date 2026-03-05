@@ -72,7 +72,7 @@ mvn test
 mvn clean package
 ```
 
-> **Nota:** Projetos Spring Boot são criados via(https://start.spring.io). Se o projeto usar o wrapper do Maven, utilize `./mvnw` em vez de `mvn`.
+> **Nota:** Projetos Spring Boot são criados via `https://start.spring.io`. Se o projeto usar o wrapper do Maven, utilize `./mvnw` em vez de `mvn`.
 
 ---
 
@@ -98,7 +98,7 @@ mvn clean package
 - **Stream API**:
   - Operações intermediárias: `filter()`, `map()`, `sorted()`.
   - Operações terminais: `collect()`, `forEach()`, `reduce()`.
-  - Lembre-se: Streams são _lazy_ (executam só quando necessário).
+  - Lembre-se: Streams são *lazy* (executam só quando necessário).
 - **Method References**: `Classe::metodo` ou `Classe::new`.
 
 ## 5: Spring Framework (Boas Práticas)
@@ -176,8 +176,9 @@ public class GerenciadorProdutos {
         // .filter() = mantém apenas os elementos que satisfazem a condição
         // .collect() = agrupa os resultados filtrados de volta em uma nova List
         return produtos.stream()
-            .filter(p -> p.toLowerCase().contains(termoNormalizado))
+            .filter(produto -> produto.toLowerCase().contains(termoNormalizado))
             .collect(Collectors.toList());
     }
 }
 ```
+

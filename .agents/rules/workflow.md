@@ -18,7 +18,7 @@ trigger: always_on
 ### 2: Discussão (Debate)
 
 - Apresente a sua análise técnica ao usuário de forma clara e direta.
-- Discuta alternativas, _trade-offs_ (prós e contras) e decisões de arquitetura.
+- Discuta alternativas, *trade-offs* (prós e contras) e decisões de arquitetura.
 - Tire dúvidas, aponte possíveis gargalos (edge cases) e alinhe as expectativas.
 - **Ação:** Aguarde o feedback do usuário.
 
@@ -41,9 +41,9 @@ trigger: always_on
 
 ### 6: Layout de Código (Modo Estudos)
 
-Neste repositório de **estudos**, o "layout" da implementação deve priorizar a didática sobre a concisão:
+Neste repositório de **estudos**, o layout da implementação deve priorizar a didática sem abandonar organização e legibilidade:
 
-- **Comentários Granulares**: Cada instrução ou pequeno bloco lógico deve ser precedido por um comentário explicativo.
+- **Comentários Granulares**: Cada instrução ou pequeno bloco lógico deve ser precedido por um comentário explicativo quando isso realmente ajudar no aprendizado.
 - **Contextualização**: O código deve explicar o "porquê" de certas escolhas técnicas (ex: por que usar `map` em vez de `for`).
 - **Linguagem**: Use termos acessíveis e evite jargões sem explicação.
 
@@ -55,3 +55,4 @@ Neste repositório de **estudos**, o "layout" da implementação deve priorizar 
 PROIBIDO: Analisar → Implementar
 CORRETO:  Analisar → Discutir → Refinar → Aprovar → Implementar
 ```
+

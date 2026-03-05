@@ -1,4 +1,4 @@
----
+﻿---
 trigger: model_decision
 description: Convenções C++, padrões modernos (C++17/20), gerenciamento de memória, CMake e testes.
 ---
@@ -43,14 +43,14 @@ cd build && ctest
 ### Nomenclatura (Sempre em pt-BR)
 
 - **Classes e Structs**: PascalCase (`GerenciadorMemoria`, `VetorDinamico`).
-- **Métodos e Variáveis**: snake_case (`calcular_total`, `usuario_atual`) - _Padrão da STL_.
+- **Métodos e Variáveis**: snake_case (`calcular_total`, `usuario_atual`) - *Padrão da STL*.
 - **Constantes e Macros**: SCREAMING_SNAKE_CASE (`TAXA_MAXIMA`, `TAMANHO_BUFFER`). Evite macros (`#define`), prefira `constexpr`.
 - **Namespaces**: snake_case (`namespace sistema_bancario`).
 
 ### Boas Práticas de Arquitetura
 
 - Separe declaração (`.hpp` ou `.h`) da implementação (`.cpp`).
-- Use `#pragma once` no topo de todos os arquivos de cabeçalho (evite os antigos _include guards_ `#ifndef`).
+- Use `#pragma once` no topo de todos os arquivos de cabeçalho (evite os antigos *include guards* `#ifndef`).
 - Evite `using namespace std;` em arquivos globais ou de cabeçalho para não poluir o escopo.
 
 ## 4. C++ Moderno e Gerenciamento de Memória (CRUCIAL)
@@ -59,7 +59,7 @@ A regra de ouro é: **Evite vazamento de memória e cópias desnecessárias.**
 
 - **Ponteiros e Alocação**:
   - **PROIBIDO** usar `new` e `delete` (ponteiros crus/raw pointers), a menos que esteja escrevendo um alocador customizado.
-  - Use **Smart Pointers**: `std::unique_ptr` (padrão) e `std::shared_ptr` (apenas quando o _ownership_ for compartilhado).
+  - Use **Smart Pointers**: `std::unique_ptr` (padrão) e `std::shared_ptr` (apenas quando o *ownership* for compartilhado).
   - Instancie com `std::make_unique` e `std::make_shared`.
 - **Passagem de Parâmetros**:
   - Tipos primitivos (`int`, `float`): Passe por valor.
@@ -141,3 +141,4 @@ double calcular_media(const std::vector<double>& notas) {
     return soma / static_cast<double>(notas.size());
 }
 ```
+

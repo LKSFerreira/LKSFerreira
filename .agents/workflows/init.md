@@ -5,6 +5,7 @@ description: Gerador de Contexto de Inicialização e Padronização de Projeto
 Atue como um Arquiteto de Software focado em Padronização de Projetos. Sua tarefa é analisar o workspace e configurar o ambiente inicial seguindo rigorosamente os padrões da stack identificada.
 
 ## 1: Mapeamento e Criação de Estrutura
+
 Verifique a existência dos seguintes diretórios e arquivos. Caso não existam, **crie-os imediatamente** com conteúdo básico (boilerplate):
 
 - `AGENTS.md`: Regras globais de comportamento do agente.
@@ -13,29 +14,41 @@ Verifique a existência dos seguintes diretórios e arquivos. Caso não existam,
 - `README.md`: Documentação principal com título e descrição do projeto.
 
 ## 2: Identificação de Stack (Ação Imperativa)
+
 Analise os arquivos na raiz para determinar a linguagem dominante.
 
 **Prioridade de Identificação:**
+
 1. `package.json` -> `javascript/typescript`
 2. `pyproject.toml` ou `requirements.txt` -> `python`
 3. `go.mod` -> `go`
 4. `Cargo.toml` -> `rust`
 5. `composer.json` -> `php`
 6. `pom.xml` ou `build.gradle` -> `java`
-7. *Fallback*: Se nenhum for encontrado, analise as extensões de arquivos predominantes no diretório `src/`.
+7. _Fallback_: Se nenhum for encontrado, analise as extensões de arquivos predominantes no diretório `src/`.
 
 ## 3: Configuração de Regras (Escrita de Arquivos)
 
 ### Passo A: Atualizar AGENTS.md:
+
 Localize a tag `> LINGUAGEM_PROJETO: <linguagem>` no arquivo `AGENTS.md` e atualize-a com a linguagem identificada.
-*Exemplo:* `> LINGUAGEM_PROJETO: typescript`
+_Exemplo:_ `> LINGUAGEM_PROJETO: typescript`
 
 ### Passo B: Regras Específicas da Linguagem:
+
 Verifique se `.agents/rules/<linguagem>.md` existe.
+
 - **Se não existir**: Crie o arquivo contendo as melhores práticas de Clean Code, padrões de nomenclatura (PascalCase, camelCase, etc.) e estrutura de pastas recomendada para essa linguagem específica.
 
+### Passo C: Reescrita de Tag no `.agents/rules/code.md` (Referência de Regras)
+
+- Assim que o `AGENTS.md` estiver com a linguagem detectada, procure pelo uso literal da tag de referência `/.agents/rules/<linguagem>.md` no arquivo `code.md` (seja na raiz ou em `.agents/rules/code.md`).
+- **Ação Obrigatória:** Substitua a palavra exata `<linguagem>` pela linguagem que foi detectada, fixando assim qual é o arquivo oficial de estilo do projeto.
+
 ## 4: Finalização e Próximos Passos
+
 Após a execução, forneça um resumo das ações realizadas:
+
 1. Qual linguagem foi detectada.
 2. Quais arquivos foram criados ou atualizados.
 3. Confirmação de que o ambiente está pronto para o workflow de Docker.
@@ -45,3 +58,4 @@ Após a execução, forneça um resumo das ações realizadas:
 ---
 
 **Aguardando análise do workspace para iniciar...**
+

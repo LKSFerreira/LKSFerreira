@@ -1,4 +1,4 @@
----
+﻿---
 trigger: model_decision
 description: Convenções Rust, Cargo, Ownership, tratamento de erros idiomático e Clippy.
 ---
@@ -65,27 +65,27 @@ projeto/
 A regra de ouro do Rust é: **Trabalhe com o Borrow Checker, não contra ele.**
 
 - **Ownership e Borrowing**:
-  - Priorize passar referências (`&T` ou `&mut T`) em vez de transferir o _ownership_ (propriedade), a menos que a função precise consumir o valor.
+  - Priorize passar referências (`&T` ou `&mut T`) em vez de transferir o *ownership* (propriedade), a menos que a função precise consumir o valor.
   - **PROIBIDO** o uso excessivo de `.clone()`. Só clone um dado se for arquiteturalmente indispensável.
 - **Tratamento de Erros (Sem Exceptions)**:
-  - **PROIBIDO** o uso de `.unwrap()` ou `.expect()` em código de produção. Eles causam _panics_ (crashes).
+  - **PROIBIDO** o uso de `.unwrap()` ou `.expect()` em código de produção. Eles causam *panics* (crashes).
   - Retorne sempre `Result<T, E>` para erros recuperáveis e `Option<T>` para ausência de valor.
   - Propague erros usando o operador `?` (ex: `let arquivo = File::open("caminho")?;`).
 - **Mutabilidade**: Variáveis são imutáveis por padrão. Use `mut` apenas quando a variável precisar ser alterada.
 
 ## 5. Testes
 
-- **Testes Unitários**: Devem ficar no mesmo arquivo do código que estão testando, dentro de um módulo anotado com `#`.
+- **Testes Unitários**: Devem ficar no mesmo arquivo do código que estão testando, dentro de um módulo anotado com `#[cfg(test)]`.
 - **Testes de Integração**: Devem ficar na pasta `tests/` na raiz do projeto.
 
 **Exemplo de Teste Unitário:**
 
 ```rust
-#
+#[cfg(test)]
 mod tests {
     use super::*;
 
-    #
+    #[test]
     fn deve_calcular_total_corretamente() {
         assert_eq!(calcular_total(10.0, 2.0), 20.0);
     }
@@ -103,7 +103,7 @@ Use comentários de documentação `///` para funções, structs e traits públi
 
 **Exemplo:**
 
-````rust
+```rust
 /// Calcula o valor com desconto aplicado.
 ///
 /// # Exemplos
@@ -115,7 +115,7 @@ Use comentários de documentação `///` para funções, structs e traits públi
 pub fn aplicar_desconto(valor: f64, desconto: f64) -> f64 {
     valor - desconto
 }
-````
+```
 
 ### 7.1: Comentários Didáticos Inline
 
@@ -165,3 +165,4 @@ pub fn ler_linhas_validas(caminho: &str) -> Result<Vec<String>, io::Error> {
     Ok(linhas)
 }
 ```
+

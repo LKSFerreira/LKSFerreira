@@ -60,7 +60,7 @@ O agente deve seguir estritamente o formato **ReStructuredText (RST)** padrão S
 2. **Detalhamento (Opcional)**: Regras de negócio e validações.
 3. **Exemplo**: Bloco de código funcional (`.. code-block:: python`).
 4. **Notas (Opcional)**: Avisos (`.. note::`).
-5. **Typing**: Uso obrigatório de _Type Hints_ nos argumentos e retorno.
+5. **Typing**: Uso obrigatório de *Type Hints* nos argumentos e retorno.
 
 **Template Canônico (Referência Absoluta):**
 
@@ -153,9 +153,10 @@ def carregar_configuracao(caminho: str) -> dict:
     # Abre o arquivo em modo leitura com encoding UTF-8
     # O bloco 'with' garante que o arquivo será fechado automaticamente,
     # mesmo se ocorrer um erro durante a leitura
-    with open(arquivo, "r", encoding="utf-8") as f:
+    with open(arquivo, 'r', encoding='utf-8') as arquivo_configuracao:
         # json.load() lê o conteúdo do arquivo e converte de JSON para dict
-        dados = json.load(f)
+        dados = json.load(arquivo_configuracao)
 
     return dados
 ```
+
