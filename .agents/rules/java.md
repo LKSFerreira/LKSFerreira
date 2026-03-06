@@ -12,7 +12,7 @@ description: Convenções Java, estrutura de projeto (puro e Spring Boot), coman
 ## 2: Purista vs Framework
 
 ### 2.1: Estrutura para Java Puro:
-Ideal para estudar conceitos básicos, algoritmos, lambdas e streams.
+Ideal para exemplos simples, utilitários e exercícios de linguagem.
 
 ```text
 projeto/
@@ -37,7 +37,7 @@ javac -d out/ src/*.java
 ---
 
 ### 2.2: Estrutura para Spring Boot:
-Ideal para estudar Spring Framework, APIs REST e injeção de dependência.
+Ideal para serviços, APIs REST e aplicações corporativas.
 
 ```text
 projeto/
@@ -66,7 +66,7 @@ mvn test
 # Gerar JAR executável
 mvn clean package
 ```
-> **Nota:** Projetos Spring Boot são criados via(https://start.spring.io). Se o projeto usar o wrapper do Maven, utilize `./mvnw` em vez de `mvn`.
+> **Nota:** Projetos Spring Boot podem ser criados via `https://start.spring.io`. Se o projeto usar o wrapper do Maven, utilize `./mvnw` em vez de `mvn`.
 
 ---
 
@@ -84,9 +84,9 @@ mvn clean package
 - Use modificadores de acesso explícitos (`private`, `public`, `protected`).
 - **Imutabilidade**: Priorize o uso de `final` para variáveis e atributos que não devem ser alterados.
 
-## 4: Conceitos do Curso (Lambdas e Streams)
+## 4: Streams e Lambdas
 - **Lambda Expressions**: Sintaxe `(parametros) -> expressao`. Usadas com interfaces funcionais (`Consumer`, `Predicate`, `Function`).
-- **Stream API**: 
+- **Stream API**:
   - Operações intermediárias: `filter()`, `map()`, `sorted()`.
   - Operações terminais: `collect()`, `forEach()`, `reduce()`.
   - Lembre-se: Streams são *lazy* (executam só quando necessário).
@@ -98,7 +98,7 @@ mvn clean package
 - **Configuração**: `application.properties` ou `application.yml`.
 
 ## 6: Ambiente Docker (DevContainer)
-Para rodar/estudar sem instalar o Java localmente:
+Para rodar o projeto sem instalar o Java localmente:
 
 ```yaml
 # compose.yaml
@@ -111,3 +111,8 @@ services:
     command: sleep infinity
 ```
 
+## 7: Documentação
+
+### Javadoc
+- Use **Javadoc** (`/** ... */`) para documentar classes, métodos e atributos públicos.
+- Inclua `@param`, `@return` e `@throws` quando aplicável.

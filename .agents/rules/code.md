@@ -13,7 +13,8 @@
 
 3. **Foco em Produção e Manutenibilidade:**
    - O código final deve priorizar **performance, segurança e legibilidade** estrutural.
-   - Comentários não devem ser didáticos (não explique "o que" o bloco faz, dê nomes expressivos aos métodos/variáveis).
+   - Comentários inline não devem ser didáticos nem redundantes.
+   - Documentação formal de código, como docstrings, Javadoc, JSDoc, Rustdoc e Doxygen, deve ser mantida quando fizer sentido para a API, classes, métodos e contratos públicos.
    - Comentários devem existir apenas para justificar decisões de arquitetura complexas e _trade-offs_ de negócio ("por que" foi feito assim).
    - Manter o fluxo conciso, reduzindo blocos desnecessários sempre que o padrão Clean Code permitir.
 

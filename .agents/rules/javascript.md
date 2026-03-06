@@ -44,7 +44,7 @@ src/
 ### Declaração e Assincronicidade:
 - **Variáveis**: Use `const` por padrão. Use `let` apenas se a variável precisar ser reatribuída. Nunca use `var`.
 - **Assincronicidade**: Priorize `async/await` com blocos `try/catch` em vez de encadeamento de `.then().catch()`.
-- **Funções**: 
+- **Funções**:
   - Preferir *arrow functions* para funções anônimas e callbacks.
   - Usar *function declaration* (`function nomeDaFuncao() {}`) para funções nomeadas exportadas, aproveitando o hoisting.
 
@@ -69,6 +69,5 @@ src/
 
 ## 7: Documentação
 - Use **JSDoc** (`/** ... */`) para documentar funções públicas, parâmetros e retornos.
-- Comentários em português explicando o *porquê* de lógicas complexas, não o *o quê*.
+- Comentários em português devem explicar o *porquê* de lógicas complexas, não o *o quê*.
 - Mantenha o `README.md` atualizado com instruções de setup.
-

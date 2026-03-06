@@ -4,7 +4,7 @@ trigger: always_on
 
 # Fluxo de Trabalho Obrigatório:
 
-> **ESTA REGRA É INVIOLÁVEL.** 
+> **ESTA REGRA É INVIOLÁVEL.**
 > Nenhuma linha de código ou modificação de arquivo pode ser iniciada sem passar estritamente por todas as etapas abaixo, na ordem exata.
 
 ## Etapas de Execução:

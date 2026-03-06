@@ -68,16 +68,16 @@ A regra de ouro do Rust é: **Trabalhe com o Borrow Checker, não contra ele.**
 - **Mutabilidade**: Variáveis são imutáveis por padrão. Use `mut` apenas quando a variável precisar ser alterada.
 
 ## 5. Testes
-- **Testes Unitários**: Devem ficar no mesmo arquivo do código que estão testando, dentro de um módulo anotado com `#`.
+- **Testes Unitários**: Devem ficar no mesmo arquivo do código que estão testando, dentro de um módulo anotado com `#[cfg(test)]`.
 - **Testes de Integração**: Devem ficar na pasta `tests/` na raiz do projeto.
 
 **Exemplo de Teste Unitário:**
 ```rust
-#
+#[cfg(test)]
 mod tests {
     use super::*;
 
-    #
+    #[test]
     fn deve_calcular_total_corretamente() {
         assert_eq!(calcular_total(10.0, 2.0), 20.0);
     }

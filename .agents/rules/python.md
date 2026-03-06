@@ -62,8 +62,7 @@ class GerenciadorUsuarios:
     """
     Gerencia operações de usuários com validações.
 
-    Uma descrição detalhada e didática pode ser escrita aqui a fim de explicar o contexto,
-    ou quaisquer outros pormenores que sejam necessários.
+    Esta docstring deve registrar contexto, contratos e exemplos úteis para manutenção.
 
     **Exemplo:**
 
@@ -102,4 +101,3 @@ class GerenciadorUsuarios:
         """
         # ... implementação ...
 ```
-

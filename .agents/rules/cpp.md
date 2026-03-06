@@ -52,7 +52,7 @@ cd build && ctest
 
 A regra de ouro é: **Evite vazamento de memória e cópias desnecessárias.**
 
-- **Ponteiros e Alocação**: 
+- **Ponteiros e Alocação**:
   - **PROIBIDO** usar `new` e `delete` (ponteiros crus/raw pointers), a menos que esteja escrevendo um alocador customizado.
   - Use **Smart Pointers**: `std::unique_ptr` (padrão) e `std::shared_ptr` (apenas quando o *ownership* for compartilhado).
   - Instancie com `std::make_unique` e `std::make_shared`.
@@ -77,7 +77,7 @@ Use o padrão Doxygen para documentar classes e métodos públicos nos arquivos 
 ```cpp
 /**
  * @brief Processa o pagamento de um cliente.
- * 
+ *
  * @param valor_compra O valor total da compra.
  * @param id_cliente O identificador único do cliente.
  * @return true Se o pagamento for aprovado.
