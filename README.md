@@ -22,8 +22,9 @@
 <a href="https://visitorbadge.io/status?path=lksferreira"><img src="https://api.visitorbadge.io/api/visitors?path=lksferreira&label=Visitantes&labelColor=%2337d67a&countColor=%232ccce4" /></a>
 
 <div style="display: inline">
-  <img align="center" alt="icone representando JavaScript" height="115" width="115" src="https://images.credly.com/size/680x680/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png">
-  <img align="center" alt="icone representando JavaScript" height="125" width="125" src="https://learn.microsoft.com/pt-br/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg">
+  <img align="center" alt="AWS Cloud Quest: Cloud Practitioner - Training Badge" height="200" width="200" src="https://images.credly.com/size/340x340/images/30816e43-2550-4e1c-be22-3f03c5573bb9/blob">
+  <img align="center" alt="AWS Certified Cloud Practitioner" height="200" width="200" src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png">
+  <img align="center" alt="Microsoft Certified: Azure Fundamentals" height="200" width="200" src="https://learn.microsoft.com/pt-br/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg">
 </div>
 
 <details open>
